@@ -206,12 +206,8 @@ pre {
 }
 table {
   width: 100%;
-  table-layout: auto;
+  table-layout: fixed;
   margin: 45px 0;
-  tbody, thead tr { display: block; }
-  tbody {
-    overflow-y: auto;
-  }
   thead {
     background: #f2f2f2;
   }
