@@ -3,9 +3,6 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-div{
-  overflow: auto;
-}
 html {
   margin: 0;
   padding: 0;
@@ -206,6 +203,9 @@ pre {
     background-color: transparent;
     padding: 0;
   }
+}
+.scrollable-table {
+  overflow-x: auto;
 }
 table {
   width: 100%;
