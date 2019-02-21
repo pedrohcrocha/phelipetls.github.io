@@ -3,8 +3,12 @@ layout: page
 title: About
 ---
 
-Hello.
+<p align="justify">Estudante de Economia com interesse em Estatística/Econometria, Programação e Matemática.
+Neste blog pretendo compartilhar o que venho estudando sobre o assunto, principalmente quando aplicado ao Python ou R.</p>
 
-This will be your About page. Anything about you, it should be written here in details. You may describe your bio here like who you are, what you do, your intention, social site hyperlinks and how people can contact you, etc.
-
-**Less is more..**
+<p align="center">
+  Você pode me encontrar em:<br>
+  <a href="https://www.linkedin.com/in/phelipeteles/">linkedin</a> |
+  <a href="https://www.hackerrank.com/phelipe_teles">hackerrank</a>
+  <br><br>
+</p>
