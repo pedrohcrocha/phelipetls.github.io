@@ -5,7 +5,8 @@ tags: [python, estatísticas]
 ---
 ##### O problema do cavalo no tabuleiro infinito: simulação com Numpy
 
-->![Img](../images/knight.png)<-
+{: .center}
+![Img](../images/knight.png)
 
 Para estrear o blog, escolhi explorar um puzzle probabilístico, que vi no [blog do David Robinson](http://varianceexplained.org/r/knight-chess/), que consiste em estimar a probabilidade de um cavalo voltar à sua posição inicial após ter saltado aleatoriamente 20 vezes num tabuleiro de xadrez infinito (sendo os 8 possíveis saltos igualmente prováveis).
 
