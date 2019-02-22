@@ -106,7 +106,7 @@ Dito isto, vejamos o que o Numpy pode fazer. Mas antes um esclarecimento - devo 
 
 A ideia de Robinson para a simulação foi imaginar o tabuleiro como um plano cartesiano, em que o cavalo está no ponto de origem, (0, 0), podendo saltar dali para oito casas possíveis, com igual probabilidade, respeitando sempre as regras do xadrez, como na imagem:
 
-![Knight](https://raw.githubusercontent.com/phelipetls/phelipetls.github.io/master/images/knight_moves.jpg)
+![Knight](https://raw.githubusercontent.com/phelipetls/phelipetls.github.io/master/images/knight_moves.png)
 
 Daí podemos notar que, se o cavalo pular para uma casa de coordenada x, a coordenada y terá que ser igual a 3 - abs(x). Mas devemos tomar o cuidado para assegurar que a coordenada y também possa ser negativa. 
 
