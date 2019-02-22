@@ -3,7 +3,7 @@ layout: post
 category: Python
 tags: [python, estatísticas]
 ---
-##### O problema do cavalo no tabuleiro infinito: simulação com Numpy
+##### Introdução
 
 {: .center}
 ![Img](../images/knight.png)
