@@ -284,4 +284,4 @@ knight_infinite_board(1000000) # 1 milhão!
 
 Acho que com esse simples exercício, pudemos mesmo atestar que o Numpy é uma ferramenta muito útil, garantindo eficiência com uma sintaxe simples e limpa. Há dentro dele ainda muito mais a ser explorado do que o exposto aqui, incluindo as mais diversas distribuições probabílistas com np.random, manipulação de matrizes com np.linalg etc. O numpy é muito usado pelas mais importantes bibliotecas relacionadas a Data Science e Machine Learning, como pandas e scikit-learn, por isso um conhecimento apropriado de suas funcionalidades pode ajudar muito se o objetivo é crescer na área de data science. 
 
-Pretendo trazer outros posts em que o usarei, mas por ora ficarei por aqui. Espero que tenha sido proveitoso. Toda crítica/sugestão será muito bem-vinda. Até :smile:.
+Pretendo trazer outros posts em que o usarei, mas por ora ficarei por aqui. Espero que tenha sido proveitoso. Toda crítica/sugestão será muito bem-vinda. Até :smile: .
