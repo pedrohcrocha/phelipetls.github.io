@@ -246,7 +246,7 @@ knight_probs = [knight_infinite_board(100000) for _ in range(100)]
 plt.hist(knight_probs, bins = 20)
 ```
 
-{. center}
+{: .center}
 ![Hist](https://raw.githubusercontent.com/phelipetls/phelipetls.github.io/master/images/hist.png)
 
 ##### A eficiência em números
