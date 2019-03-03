@@ -138,9 +138,9 @@ Finalmente, matrizes. Comecemos primeiro com a equação básica, $F_n = F_{n-1}
 
 Só que, para termos um sistema de equações lineares, precisamos de mais uma equação pelo menos. A escolha mais simples é: $F_{n-1} = F_{n-1} + 0\cdot F_{n-2}$. O que, em linguagem de matrizes, pode ser escrito como:
 
-$$\\begin{matrix}F_{n} \\\\ F_{n-1}\\end{matrix} = \\begin{matrix}1 & 1\\\\1 & 0\\end{matrix} \\cdot \\begin{matrix}F_{n-1} \\\\ F_{n-2}\\end{matrix}$$
+$$\begin{matrix}F_{n} \\\ F_{n-1}\end{matrix} = \begin{matrix}1 & 1\\\1 & 0\end{matrix} \cdot \begin{matrix}F_{n-1} \\\ F_{n-2}\end{matrix}$$
 
-Uma denominação mais interessante para essa relação seria: $ u_{t+1} = Au_t $. O papel que desempenha a matriz A é o de transformar o vetor no "tempo" t para nos dar o vetor no "tempo" seguinte. Estamos tratando aqui de um sistema dinâmico, que evolui no tempo, e agora, queremos saber, por exemplo, qual o $u_{100}$. Como podemos fazer isso? 
+Uma denominação mais interessante para essa relação seria: $ u_{t+1} = Au_t $. O papel que desempenha a matriz A é o de transformar o vetor no "tempo" t para nos dar o vetor no "tempo" seguinte. Estamos lidando aqui com um sistema dinâmico, que evolui no tempo, e agora, queremos saber, por exemplo, qual o $u_{100}$. Como podemos fazer isso? 
 
 Bom, para começar, é conveniente considerarmos um vetor base $u_0$, que no nosso caso pode ser perfeitamente $\begin{bmatrix} 1 \\\ 0 \end{bmatrix}$. Assim, segue diretamente que $u_1 = Au_0$. E, disso, que $u_2 = Au_1 = A \cdot A \cdot u_0 = A^2u_0$. Logo, a fórmula geral é: $$u^k = A^ku_0$$.
 
