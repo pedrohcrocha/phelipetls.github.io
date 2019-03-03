@@ -79,7 +79,7 @@ Esse algoritmo funciona da seguinte forma: Primeiro, temos um caso base (_base c
 
 Neste caso, definimos que os números 0 e 1 da sequência de fibonacci são, respectivamente, 0 e 1. Para todos os outros, calculamos de forma recursiva. 
 
-Por exemplo, \F_3 = F_2 + F_1 = F_1 + F_0 + F_1 = 1 + 0 + 1 = 2.\
+Por exemplo, \[F_3 = F_2 + F_1 = F_1 + F_0 + F_1 = 1 + 0 + 1 = 2.\]
 
 Ótimo! E é uma bela amostra da beleza e poder da recursão na computação. Vamos ver quão eficiente ele é.
 
@@ -138,39 +138,39 @@ https://youtu.be/13r9QY6cmjc?t=2074
 
 Finalmente, matrizes. Comecemos primeiro com a equação básica, $F_n = F_{n-1} + F_{n-2}$. 
 
-Só que, para termos um sistema de equações lineares, precisamos de mais uma equação pelo menos. A escolha mais simples é: $F_{n-1} = F_{n-1} + 0\cdot F_{n-2}$. O que, em linguagem de matrizes, pode ser escrito como:
+Só que, para termos um sistema de equações lineares, precisamos de mais uma equação pelo menos. A escolha mais simples é: \[F_{n-1} = F_{n-1} + 0\cdot F_{n-2}\]. O que, em linguagem de matrizes, pode ser escrito como:
 
 $$\begin{bmatrix}F_{n} \\ F_{n-1}\end{bmatrix} = \begin{bmatrix}1 & 1\\1 & 0\end{bmatrix} \cdot \begin{bmatrix}F_{n-1} \\ F_{n-2}\end{bmatrix}$$
 
-Uma denominação mais interessante para essa relação seria: $ u_{t+1} = Au_t $. Porque queremos saber, por exemplo, qual o \u_{100}\. Como podemos fazer isso? 
+Uma denominação mais interessante para essa relação seria: $ u_{t+1} = Au_t $. Porque queremos saber, por exemplo, qual o \[u_{100}\]. Como podemos fazer isso? 
 
-Bom, para começar, tomemos um vetor base \u_0\, que no nosso caso pode ser perfeitamente \\begin{bmatrix} 1 \\ 0 \end{bmatrix}\. Assim, segue diretamente que \u_1 = Au_0\. E, disso, que \u_2 = Au_1 = A \cdot A \cdot u_0 = A^2u_0\. Logo, a fórmula geral é: $$u^k = A^ku_0$$.
+Bom, para começar, tomemos um vetor base \[u_0\], que no nosso caso pode ser perfeitamente \[\begin{bmatrix} 1 \\ 0 \end{bmatrix}\]. Assim, segue diretamente que \[u_1 = Au_0\]. E, disso, que \[u_2 = Au_1 = A \cdot A \cdot u_0 = A^2u_0\]. Logo, a fórmula geral é: $$u^k = A^ku_0$$.
 
 O que sugere de imediato que a resposta reside nas potências da matriz. Mas isso pode ser bem complicado. Felizmente, existe uma maneira muito conveniente para esses casos, que envolve os autovalores/autovetores (_eigenvalues/eigenvectors_) de uma matriz. Mas, afinal, o que são eles?
 
 Simply put, os autovetores são vetores característicos de uma matriz que, quando transformados por ela, não mudam de direção, mas é possível que mudem em magnitude dependendo do autovalor. Matematicamente, $$Ax = \lambda x$$
 
-Em que \x\ é um autovetor da matriz \A\ e \\lambda\ um autovalor do autovetor. Note que, por isso, o autovetor pode encolher (se \\lambda = 0.5\), ou aumentar (se \\lambda > 1\), ou apontar para a direção oposta (se \\lambda = -1\) quando transformado.
+Em que \[x\] é um autovetor da matriz \[A\] e \[\lambda\] um autovalor do autovetor. Note que, por isso, o autovetor pode encolher (se \[\lambda = 0.5\]), ou aumentar (se \[\lambda > 1\]), ou apontar para a direção oposta (se \[\lambda = -1\]) quando transformado.
 
 Agora, o próximo passo, um grande passo, é que nós podemos decompor a matriz A em seus autovetores e autovalores. Isto é possível se os autovetores forem todos linearmente independentes. 
 
-Daí que, tratando \S\ como uma matriz dos autovetores e \\Lambda\ como uma matriz de autovalores na diagonal, podemos afirmar que $$AS = S\Lambda$$ O que não é óbvio, mas que pode ser visto deste modo:
+Daí que, tratando \[S\] como uma matriz dos autovetores e \[\Lambda\] como uma matriz de autovalores na diagonal, podemos afirmar que $$AS = S\Lambda$$ O que não é óbvio, mas que pode ser visto deste modo:
 
 $$AS = A \cdot \begin{bmatrix}x_1 & x_2 \\x_1 & x_2\end{bmatrix} = \begin{bmatrix}\lambda_{1} x_1 & \lambda_{2} x_2 \\ \lambda_{1} x_1 & \lambda_{2} x_2\end{bmatrix} = \begin{bmatrix}x_1 & x_2 \\x_1 & x_2\end{bmatrix} \cdot \begin{bmatrix} \lambda_{1} & 0 \\ 0 & \lambda_{2}\end{bmatrix} = S \Lambda$$
 
-Se não ficou claro, cada coluna de S é um autovetor. Quando fazemos \AS\, obtemos uma matriz cujas colunas são os autovetores vezes seus respectivos autovalores (lembre-se de \Ax = \lambda x\). Tal matriz pode ser "diagonalizada" separando esses seus dois componentes como mostrado.
+Se não ficou claro, cada coluna de S é um autovetor. Quando fazemos \[AS\], obtemos uma matriz cujas colunas são os autovetores vezes seus respectivos autovalores (lembrando que \[Ax = \lambda x\]). Tal matriz pode ser "diagonalizada" separando esses seus dois componentes como mostrado.
 
 Ok, mas por que isso é útil? Queremos investigar as potências de uma matriz afinal! Essa decomposição de matriz serve justamente para esse propósito. Vejamos.
 
-Vamos multiplicar \AS\ pela direita por \S^{-1}\. Isso dá: \A = S\Lambda S^{-1}\, já que $SS^{-1} = I$. Agora, $A^2 = S\Lambda S^{-1}S\Lambda S^{-1} = S \Lambda^{2}S^{-1}\. E, em geral:
+Vamos multiplicar \[AS\] pela direita por \[S^{-1}\]. Isso dá: \[A = S\Lambda S^{-1}\], já que \[SS^{-1} = I\]. Agora, \[A^2 = S\Lambda S^{-1}S\Lambda S^{-1} = S \Lambda^{2}S^{-1}\]. E, em geral:
 
 $$A^k = S \Lambda^{k}S^{-1}$$
 
-Retomando lá do início, \u_k = A^ku_0\ pode ser reescrito agora como \u_k = S \Lambda^{k}S^{-1}u_0\. Mas, na verdade, seria mais conveniente agora termos \u_0\ em uma nova "forma", mais especificamente, como uma combinação linear dos autovetores, \Sc = u_0\, onde c é o vetor de coeficientes que resolve esse sistema de equações, \c = S^{-1}u_0\. E, assim, nós temos tudo o que precisamos. 
+Retomando lá do início, \[u_k = A^ku_0\] pode ser reescrito agora como \[u_k = S \Lambda^{k}S^{-1}u_0\]. Mas, na verdade, seria mais conveniente agora termos \[u_0\] em uma nova "forma", mais especificamente, como uma combinação linear dos autovetores, \[Sc = u_0\], onde c é o vetor de coeficientes que resolve esse sistema de equações, \[c = S^{-1}u_0\]. E, assim, nós temos tudo o que precisamos. 
 
 $$ u_k = A^ku_0 = S \Lambda^{k}S^{-1} Sc = S \Lambda^{k}c $$
 
-Isso implica que, no nosso caso, para uma matrix 2x2 (só dois autovetores), \u_k = c_1\lambda_{1}^{k}x_1 + c_2\lambda_{2}^{k}x_2\. O que indica que a evolução do nosso sistema de equações é ditada pelos autovalores somente. Então, vamos achá-los usando o NumPy.
+Isso implica que, no nosso caso, para uma matrix 2x2 (só dois autovetores), \[u_k = c_1\lambda_{1}^{k}x_1 + c_2\lambda_{2}^{k}x_2\]. O que indica que a evolução do nosso sistema de equações é ditada pelos autovalores somente. Então, vamos achá-los usando o NumPy.
 
 O primeiro passo é criar a matriz A. Logo depois, obter os autovalores/autovetores, nessa ordem, com a função numpy.linalg.eig().
 
@@ -192,7 +192,7 @@ print(evalues, evectors, sep = '\n\n')
      [ 0.52573111  0.85065081]]
     
 
-Mas, lembrando que queremos os autovalores na matriz diagonal \\Lambda\. Também precisamos calcular o vetor c.
+Mas, lembrando que queremos os autovalores na matriz diagonal \[\Lambda\]. Também precisamos calcular o vetor c.
 
 
 ```python
@@ -201,7 +201,7 @@ Lambda = np.diag(evalues)
 c = np.linalg.solve(evectors, np.array([1, 0])[:, np.newaxis])
 ```
 
-Agora, vamos olhar a cara da nossa matriz \\Lambda\:
+Agora, vamos olhar a cara da nossa matriz \[\Lambda\]:
 
 
 ```python
@@ -216,13 +216,13 @@ Lambda
 
 
 
-O primeiro número pode parecer familiar para o leitor, afinal é um dos mais famosos, o número de ouro. E é precisamente ele que descreve como os números de fibonacci estão crescendo!! Relembrando que \u_k = c_1\lambda_{1}^{k}x_1 + c_2\lambda_{2}^{k}x_2\, substituindo temos:
+O primeiro número pode parecer familiar para o leitor, afinal é um dos mais famosos, o número de ouro. E é precisamente ele que descreve como os números de fibonacci estão crescendo!! Relembrando que \[u_k = c_1\lambda_{1}^{k}x_1 + c_2\lambda_{2}^{k}x_2\], substituindo temos:
 
 $$u_k = c_1\cdot(1.618)^{k}\cdot x_1 + c_2\cdot(-0.618)^{k}\cdot x_2$$
 
 E fica evidente que, para um k muito alto, o primeiro autovalor é o que determina como os números crescem. E eles crescem bastante rápido, exponencialmente!
 
-Agora, vamos criar uma função para calcular \u_k\. Nela usaremos a matriz \S\ (evectors), o vetor c e a matriz \\Lambda\.
+Agora, vamos criar uma função para calcular \[u_k\]. Nela usaremos a matriz \[S\] (evectors), o vetor c e a matriz \[\Lambda\].
 
 
 ```python
@@ -235,7 +235,7 @@ for i in range(1, 15):
 
     [1.]    [2.]    [3.]    [5.]    [8.]    [13.]   [21.]   [34.]   [55.]   [89.]   [144.]  [233.]  [377.]  [610.]  
 
-Tudo o que fiz foi calcular \u_k\ com a fórmula e extrair do vetor resultante a primeira linha (\F_k\).
+Tudo o que fiz foi calcular \[u_k\] com a fórmula e extrair do vetor resultante a primeira linha (\[F_k\]).
 
 E quanto à sua eficiência?
 
