@@ -1,13 +1,11 @@
-
-##### Introdução
-
 A sequência de fibonacci é uma velha conhecida dos que já estudaram programação. Por isso, esse post não deve soar tão estimulante para pessoas quem trabalham com programação há muito tempo, mas prometo que algo ainda pode ser aproveitado. Aqui pretendo mostrar três algoritmos para sequência, e eu fiquei impressionado com todos eles em diferentes épocas da minha vida.
 
 O primeiro deles é o mais usual. O segundo é por recursão. Já o terceiro é o que me motivou a fazer o post, nele fazemos uso extensivo de álgebra linear, e com isso podemos aprender muito mais a fundo sobre a natureza desses números, por exemplo, como eles estão crescendo?
 
 O primeiro eu vi pela primeira vez escrito em C++ num curso de informática que fiz. O segundo, num curso de [Introdução à Ciência da Computação](https://www.youtube.com/watch?v=ytpJdnlu9ug&list=PLUl4u3cNGP63WbdFxL8giv4yhgdMGaZNA) do MIT OpenCourseWare. E o terceiro na [aula 22](https://youtu.be/13r9QY6cmjc?t=2074) do curso de Linear Algebra do MIT Open Course Ware, com o Gilbert Strang, que, aliás, cada aula é uma obra-prima. O segredo estar em ver a sequência de Fibonacci como um sistema de equações lineares dinâmico, que evolui no tempo. E para entender melhor como isso funciona, precisamos introduzir o conceito de autovalores/autovetores primeiro. Mas vejamos os casos simples primeiro.
 
-##### A maneira usual
+***
+##### A maneira comum
 
 Apenas para recordar o que é a sequência de fibonacci: dados os dois primeiros números da sequência (comumente 0 e 1), o próximo número é a soma dos dois que o precedem. 
 
@@ -52,7 +50,7 @@ Para comparação, vamos testar a eficiência dele.
 
     2.46 ms ± 96.5 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
     
-
+***
 ##### Por recursão
 
 Como não sou estudante de ciência da computação, esse eu conheci recentemente até e achei maravilhoso. Ele tem a vantagem de ser bem legível, limpo.
@@ -140,23 +138,25 @@ Só que, para termos um sistema de equações lineares, precisamos de mais uma e
 
 $$\begin{matrix}F_{n} \\\ F_{n-1}\end{matrix} = \begin{matrix}1 & 1\\\1 & 0\end{matrix} \cdot \begin{matrix}F_{n-1} \\\ F_{n-2}\end{matrix}$$
 
-Uma denominação mais interessante para essa relação seria: $ u_{t+1} = Au_t $. O papel que desempenha a matriz A é o de transformar o vetor no "tempo" t para nos dar o vetor no "tempo" seguinte. Estamos lidando aqui com um sistema dinâmico, que evolui no tempo, e agora, queremos saber, por exemplo, qual o $u_{100}$. Como podemos fazer isso? 
+Uma denominação mais interessante para essa relação é: $ u_{t+1} = Au_t $. O papel que desempenha a matriz A é o de transformar o vetor no "tempo" t para nos dar o vetor no "tempo" seguinte. Estamos lidando aqui com um sistema dinâmico, que evolui no tempo, e agora, queremos saber, por exemplo, qual o $u_{100}$. Como podemos fazer isso? 
 
 Bom, para começar, é conveniente considerarmos um vetor base $u_0$, que no nosso caso pode ser perfeitamente $\begin{bmatrix} 1 \\\ 0 \end{bmatrix}$. Assim, segue diretamente que $u_1 = Au_0$. E, disso, que $u_2 = Au_1 = A \cdot A \cdot u_0 = A^2u_0$. Logo, a fórmula geral é: $$u^k = A^ku_0$$.
 
-O que sugere de imediato que a resposta reside nas potências da matriz. Mas isso pode ser bem complicado. Felizmente, existe uma maneira muito conveniente para resolver esses casos, e envolve os autovalores/autovetores (_eigenvalues/eigenvectors_) de uma matriz. Mas, afinal, o que são eles?
+O que sugere de imediato que a resposta reside nas potências da matriz. Mas isso pode ser bem pesado matematicamente. Felizmente, existe uma maneira muito conveniente para resolver esses casos, e envolve os autovalores/autovetores (_eigenvalues/eigenvectors_) de uma matriz. Mas, afinal, o que são eles?
 
 Simply put, os autovetores são vetores característicos de uma matriz que, quando transformados por ela, não mudam de direção, mas é possível que mudem em magnitude dependendo do autovalor. Matematicamente, $$Ax = \lambda x$$
 
 Em que $x$ é um autovetor da matriz $A$ e $\lambda$ um autovalor do autovetor. Note que, por isso, o autovetor pode encolher (se $\lambda = 0.5$), ou aumentar (se $\lambda > 1$), ou apontar para a direção oposta (se $\lambda = -1$) quando transformado.
 
-Agora, o próximo passo, um grande passo, é que nós podemos decompor a matriz $A$ em seus autovetores e autovalores. Isto é possível se os autovetores forem todos linearmente independentes.
+Agora, o próximo passo, um grande passo, é notar que nós podemos decompor a matriz $A$ em seus autovetores e autovalores. Isto é possível se os autovetores forem todos linearmente independentes.
 
-Daí que, tratando $S$ como uma matriz dos autovetores e $\Lambda$ como uma matriz de autovalores na diagonal, podemos afirmar que $$AS = S\Lambda$$ O que não é óbvio, mas que pode ser visto deste modo:
+Daí que, tratando $S$ como uma matriz de autovetores nas colunas e $\Lambda$ como uma matriz de autovalores na diagonal e zeros em todo o resto, podemos afirmar que $$AS = S\Lambda$$ 
+
+O que não é óbvio, mas que pode ser visto deste modo:
 
 $$AS = A \cdot \begin{bmatrix}x_1 & x_2 \\x_1 & x_2\end{bmatrix} = \begin{bmatrix}\lambda_{1} x_1 & \lambda_{2} x_2 \\ \lambda_{1} x_1 & \lambda_{2} x_2\end{bmatrix} = \begin{bmatrix}x_1 & x_2 \\x_1 & x_2\end{bmatrix} \cdot \begin{bmatrix} \lambda_{1} & 0 \\ 0 & \lambda_{2}\end{bmatrix} = S \Lambda$$
 
-Se não ficou claro, cada coluna de S é um autovetor. Quando fazemos $AS$, obtemos uma matriz cujas colunas são os autovetores vezes seus respectivos autovalores (lembrando que $Ax = \lambda x$). Tal matriz pode ser "diagonalizada" separando esses seus dois componentes como mostrado.
+Caso não tenha ficado claro: cada coluna de S é um autovetor. Quando fazemos $AS$, obtemos uma matriz cujas colunas são os autovetores vezes seus respectivos autovalores (consequência direta de $Ax = \lambda x$). Essa matriz pode, enfim, ser "diagonalizada" separando esses seus dois componentes como mostrado.
 
 Ok, mas por que isso é útil? Queremos investigar as potências de uma matriz afinal! Essa decomposição de matriz serve justamente para esse propósito. Vejamos.
 
@@ -164,11 +164,13 @@ Vamos multiplicar $AS$ pela direita por $S^{-1}$. Isso dá: $A = S\Lambda S^{-1}
 
 $$A^k = S \Lambda^{k}S^{-1}$$
 
-Retomando lá do início, $u_k = A^ku_0$ pode ser reescrito agora como $u_k = S \Lambda^{k}S^{-1}u_0$. Mas, na verdade, seria mais conveniente agora termos $u_0$ em uma nova "forma", mais especificamente, como uma combinação linear dos autovetores, $Sc = u_0$, onde c é o vetor de coeficientes que resolve esse sistema de equações, $c = S^{-1}u_0$. E, assim, nós temos tudo o que precisamos. 
+Retomando lá do início, $u_k = A^ku_0$ pode ser reescrito agora como $u_k = S \Lambda^{k}S^{-1}u_0$. 
 
-$$ u_k = A^ku_0 = S \Lambda^{k}S^{-1} Sc = S \Lambda^{k}c $$
+Só que agora, na verdade, vê-se que é mais conveniente termos $u_0$ em uma nova "forma", mais especificamente, como uma combinação linear dos autovetores, $Sc = u_0$, onde c é o vetor de coeficientes que resolve esse sistema de equações, $c = S^{-1}u_0$. E, assim, nós temos tudo o que precisamos porque 
 
-Isso implica que, no nosso caso, para uma matrix 2x2 (só dois autovetores), $u_k = c_1\lambda_{1}^{k}x_1 + c_2\lambda_{2}^{k}x_2$. O que indica que a evolução do nosso sistema de equações é ditada pelos autovalores somente. Então, vamos achá-los usando o NumPy.
+$$ u_k = A^ku_0 = S \Lambda^{k}S^{-1} Sc = S \Lambda^{k}c.$$
+
+Isso implica que, no nosso caso, para uma matrix 2x2 (só dois autovetores), $u_k = c_1\lambda_{1}^{k}x_1 + c_2\lambda_{2}^{k}x_2$. O que indica que a evolução do nosso sistema de equações é totalmente ditada pelos autovalores (não importa quantas vezes a matriz A transforme os autovetores, a direção deles nunca muda). Agora resta calculá-los com o NumPy.
 
 O primeiro passo é criar a matriz A. Logo depois, obter os autovalores/autovetores, nessa ordem, com a função numpy.linalg.eig().
 
@@ -214,11 +216,11 @@ Lambda
 
 
 
-O primeiro número pode parecer familiar para o leitor, afinal é um dos mais famosos, o número de ouro. E é precisamente ele que descreve como os números de fibonacci estão crescendo!! Relembrando que $u_k = c_1\lambda_{1}^{k}x_1 + c_2\lambda_{2}^{k}x_2$, substituindo temos:
+O primeiro número pode parecer familiar para o leitor, afinal é um dos mais famosos, o número de ouro. E é precisamente ele que descreve como os números de fibonacci estão crescendo!! Como sabemos que $u_k = c_1\lambda_{1}^{k}x_1 + c_2\lambda_{2}^{k}x_2$, substituindo temos:
 
 $$u_k = c_1\cdot(1.618)^{k}\cdot x_1 + c_2\cdot(-0.618)^{k}\cdot x_2$$
 
-E fica evidente que, para um k muito alto, o primeiro autovalor é o que determina como os números crescem. E eles crescem bastante rápido, exponencialmente!
+E fica evidente que, para um k muito grande, o primeiro autovalor é o que determina como os números crescem. E eles crescem exponencialmente rápido!
 
 Agora, vamos criar uma função para calcular $u_k$. Nela usaremos a matriz $S$ (evectors), o vetor c e a matriz $\Lambda$.
 
@@ -245,6 +247,8 @@ E quanto à sua eficiência?
     32.8 µs ± 1.46 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
     
 
-Foi o mais rápido dos três. O que é compreensível porque estamos usando o NumPy afinal. 
+Não surpreende por ser tão rápido, estamos usando o NumPy afinal.
 
-Mas a beleza dessa abordagem está menos em sua eficiência e mais no que a álgebra linear pode nos revelar. A partir dela pudemos entender muito melhor sobre esses números, o que governa o seu crescimento etc. Mas, além disso, problemas com sistemas dinâmicos como esse estão em todos os lugares, e lidar com eles requer inevitavelmente conhecer os autovetores/autovalores de uma matriz e como podemos usá-los.
+Mas a beleza dessa abordagem está menos em sua eficiência e mais no que a álgebra linear pode nos revelar. A partir dela pudemos entender muito melhor sobre esses números, o que governa o seu crescimento etc. Mas, além disso, problemas com sistemas dinâmicos como esse estão em todos os lugares, e lidar com eles requer inevitavelmente conhecer os autovetores/autovalores de uma matriz e como podemos usá-los. 
+
+A sequência de Fibonacci é um bom exemplo para introduzir esses conceitos da álgebra linear, cujo conhecimento é exigido por muitos outros problemas mais práticos/complexos, como Cadeias de Markov. 
