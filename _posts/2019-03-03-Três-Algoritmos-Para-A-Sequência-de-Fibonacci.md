@@ -136,9 +136,7 @@ Finalmente, matrizes. Comecemos primeiro com a equação básica, $F_n = F_{n-1}
 
 Só que, para termos um sistema de equações lineares, precisamos de mais uma equação pelo menos. A escolha mais simples é: $F_{n-1} = F_{n-1} + 0\cdot F_{n-2}$. O que, em linguagem de matrizes, pode ser escrito como:
 
-$$\begin{bmatrix}
-  1 & 1 \\\\
-  1 & 0 \end{bmatrix}$$
+$\begin{bmatrix} 1 & 1 \\\ 1 & 0 \end{bmatrix}$
 
 Uma denominação mais interessante para essa relação é: $ u_{t+1} = Au_t $. O papel que desempenha a matriz A é o de transformar o vetor no "tempo" t para nos dar o vetor no "tempo" seguinte. Estamos lidando aqui com um sistema dinâmico, que evolui no tempo, e agora, queremos saber, por exemplo, qual o $u_{100}$. Como podemos fazer isso? 
 
