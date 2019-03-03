@@ -134,7 +134,7 @@ https://youtu.be/13r9QY6cmjc?t=2074
 
 Finalmente, matrizes. Comecemos primeiro com a equação básica, $F_n = F_{n-1} + F_{n-2}$. 
 
-Só que, para termos um sistema de equações lineares, precisamos de mais uma equação pelo menos. A escolha mais simples é: $F_{n-1} = F_{n-1} + 0\cdot F_{n-2}$. O que, em linguagem de matrizes, pode ser escrito como: sfs
+Só que, para termos um sistema de equações lineares, precisamos de mais uma equação pelo menos. A escolha mais simples é: $F_{n-1} = F_{n-1} + 0\cdot F_{n-2}$. O que, em linguagem de matrizes, pode ser escrito como:
 
 {: .center}
 $\begin{bmatrix}F_{n} \\\ F_{n-1}\end{bmatrix} = \begin{bmatrix}1 & 1\\\1 & 0\end{bmatrix} \cdot \begin{bmatrix}F_{n-1} \\\ F_{n-2}\end{bmatrix}$
@@ -155,7 +155,8 @@ Daí que, tratando $S$ como uma matriz de autovetores nas colunas e $\Lambda$ co
 
 O que não é óbvio, mas que pode ser visto deste modo:
 
-$$AS = A \cdot \begin{bmatrix}x_1 & x_2 \\\ x_1 & x_2\end{bmatrix} = \begin{bmatrix}\lambda_{1} x_1 & \lambda_{2} x_2 \\\ \lambda_{1} x_1 & \lambda_{2} x_2\end{bmatrix} = \begin{bmatrix}x_1 & x_2 \\\ x_1 & x_2\end{bmatrix} \cdot \begin{bmatrix} \lambda_{1} & 0 \\\ 0 & \lambda_{2}\end{bmatrix} = S \Lambda$$
+{: .center}
+$AS = A \cdot \begin{bmatrix}x_1 & x_2 \\\ x_1 & x_2\end{bmatrix} = \begin{bmatrix}\lambda_{1} x_1 & \lambda_{2} x_2 \\\ \lambda_{1} x_1 & \lambda_{2} x_2\end{bmatrix} = \begin{bmatrix}x_1 & x_2 \\\ x_1 & x_2\end{bmatrix} \cdot \begin{bmatrix} \lambda_{1} & 0 \\\ 0 & \lambda_{2}\end{bmatrix} = S \Lambda$
 
 Caso não tenha ficado claro: cada coluna de S é um autovetor. Quando fazemos $AS$, obtemos uma matriz cujas colunas são os autovetores vezes seus respectivos autovalores (consequência direta de $Ax = \lambda x$). Essa matriz pode, enfim, ser "diagonalizada" separando esses seus dois componentes como mostrado.
 
@@ -173,7 +174,7 @@ $$ u_k = A^ku_0 = S \Lambda^{k}S^{-1} Sc = S \Lambda^{k}c.$$
 
 Isso implica que, no nosso caso, para uma matrix 2x2 (só dois autovetores), $u_k = c_1\lambda_{1}^{k}x_1 + c_2\lambda_{2}^{k}x_2$. O que indica que a evolução do nosso sistema de equações é totalmente ditada pelos autovalores (não importa quantas vezes a matriz A transforme os autovetores, a direção deles nunca muda). Agora resta calculá-los com o NumPy.
 
-O primeiro passo é criar a matriz A. Logo depois, obter os autovalores/autovetores, nessa ordem, com a função numpy.linalg.eig().
+O primeiro passo é criar a matriz A. Logo depois, obter os autovalores/autovetores, nessa ordem, com a função ```numpy.linalg.eig()```.
 
 
 ```python
