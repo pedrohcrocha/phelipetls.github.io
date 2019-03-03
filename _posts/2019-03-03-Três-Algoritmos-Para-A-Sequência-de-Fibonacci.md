@@ -138,19 +138,19 @@ Finalmente, matrizes. Comecemos primeiro com a equação básica, $F_n = F_{n-1}
 
 Só que, para termos um sistema de equações lineares, precisamos de mais uma equação pelo menos. A escolha mais simples é: $F_{n-1} = F_{n-1} + 0\cdot F_{n-2}$. O que, em linguagem de matrizes, pode ser escrito como:
 
-$$\begin{matrix}F_{n} \\\ F_{n-1}\end{matrix} = \begin{matrix}1 & 1\\\1 & 0\end{matrix} \cdot \begin{matrix}F_{n-1} \\\ F_{n-2}\end{matrix}$$
+$$\\begin{matrix}F_{n} \\\\ F_{n-1}\\end{matrix} = \\begin{matrix}1 & 1\\\\1 & 0\\end{matrix} \\cdot \\begin{matrix}F_{n-1} \\\\ F_{n-2}\\end{matrix}$$
 
-Uma denominação mais interessante para essa relação seria: $ u_{t+1} = Au_t $. O que deve ser interpretado como se a matriz A estivesse transformando o vetor t e nos dando . Agora, queremos saber, por exemplo, qual o $u_{100}$. Como podemos fazer isso? 
+Uma denominação mais interessante para essa relação seria: $ u_{t+1} = Au_t . O papel que desempenha a matriz A é o de transformar o vetor no "tempo" t para nos dar o vetor no "tempo" seguinte. Estamos tratando aqui de um sistema dinâmico, que evolui no tempo, e agora, queremos saber, por exemplo, qual o $u_{100}$. Como podemos fazer isso? 
 
-Bom, para começar, é conveniente considerarmos um vetor base $u_0$, que no nosso caso pode ser perfeitamente $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$. Assim, segue diretamente que $u_1 = Au_0$. E, disso, que $u_2 = Au_1 = A \cdot A \cdot u_0 = A^2u_0$. Logo, a fórmula geral é: $$u^k = A^ku_0$$.
+Bom, para começar, é conveniente considerarmos um vetor base $u_0$, que no nosso caso pode ser perfeitamente $\begin{bmatrix} 1 \\\ 0 \end{bmatrix}$. Assim, segue diretamente que $u_1 = Au_0$. E, disso, que $u_2 = Au_1 = A \cdot A \cdot u_0 = A^2u_0$. Logo, a fórmula geral é: $$u^k = A^ku_0$$.
 
-O que sugere de imediato que a resposta reside nas potências da matriz. Mas isso pode ser bem complicado. Felizmente, existe uma maneira muito conveniente para esses casos, que envolve os autovalores/autovetores (_eigenvalues/eigenvectors_) de uma matriz. Mas, afinal, o que são eles?
+O que sugere de imediato que a resposta reside nas potências da matriz. Mas isso pode ser bem complicado. Felizmente, existe uma maneira muito conveniente para resolver esses casos, e envolve os autovalores/autovetores (_eigenvalues/eigenvectors_) de uma matriz. Mas, afinal, o que são eles?
 
 Simply put, os autovetores são vetores característicos de uma matriz que, quando transformados por ela, não mudam de direção, mas é possível que mudem em magnitude dependendo do autovalor. Matematicamente, $$Ax = \lambda x$$
 
 Em que $x$ é um autovetor da matriz $A$ e $\lambda$ um autovalor do autovetor. Note que, por isso, o autovetor pode encolher (se $\lambda = 0.5$), ou aumentar (se $\lambda > 1$), ou apontar para a direção oposta (se $\lambda = -1$) quando transformado.
 
-Agora, o próximo passo, um grande passo, é que nós podemos decompor a matriz A em seus autovetores e autovalores. Isto é possível se os autovetores forem todos linearmente independentes. 
+Agora, o próximo passo, um grande passo, é que nós podemos decompor a matriz $A$ em seus autovetores e autovalores. Isto é possível se os autovetores forem todos linearmente independentes.
 
 Daí que, tratando $S$ como uma matriz dos autovetores e $\Lambda$ como uma matriz de autovalores na diagonal, podemos afirmar que $$AS = S\Lambda$$ O que não é óbvio, mas que pode ser visto deste modo:
 
