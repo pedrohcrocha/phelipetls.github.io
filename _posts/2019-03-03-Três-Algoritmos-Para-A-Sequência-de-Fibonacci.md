@@ -1,3 +1,6 @@
+---
+published: false
+---
 A sequência de fibonacci é uma velha conhecida dos que já estudaram programação. Por isso, esse post não deve soar tão estimulante para pessoas quem trabalham com programação há muito tempo, mas prometo que algo ainda pode ser aproveitado. Aqui pretendo mostrar três algoritmos para sequência, e eu fiquei impressionado com todos eles em diferentes épocas da minha vida.
 
 O primeiro deles é o mais usual. O segundo é por recursão. Já o terceiro é o que me motivou a fazer o post, nele fazemos uso extensivo de álgebra linear, e com isso podemos aprender muito mais a fundo sobre a natureza desses números, por exemplo, como eles estão crescendo?
@@ -136,7 +139,7 @@ Finalmente, matrizes. Comecemos primeiro com a equação básica, $F_n = F_{n-1}
 
 Só que, para termos um sistema de equações lineares, precisamos de mais uma equação pelo menos. A escolha mais simples é: $F_{n-1} = F_{n-1} + 0\cdot F_{n-2}$. O que, em linguagem de matrizes, pode ser escrito como:
 
-$$\begin{matrix}F_{n} \\\ F_{n-1}\end{matrix} = \begin{matrix}1 & 1\\\1 & 0\end{matrix} \cdot \begin{matrix}F_{n-1} \\\ F_{n-2}\end{matrix}$$
+$$\begin{bmatrix}F_{n} \\\ F_{n-1}\end{bmatrix} = \begin{bmatrix}1 & 1\\\1 & 0\end{bmatrix} \cdot \begin{bmatrix}F_{n-1} \\\ F_{n-2}\end{bmatrix}$$
 
 Uma denominação mais interessante para essa relação é: $ u_{t+1} = Au_t $. O papel que desempenha a matriz A é o de transformar o vetor no "tempo" t para nos dar o vetor no "tempo" seguinte. Estamos lidando aqui com um sistema dinâmico, que evolui no tempo, e agora, queremos saber, por exemplo, qual o $u_{100}$. Como podemos fazer isso? 
 
@@ -154,7 +157,7 @@ Daí que, tratando $S$ como uma matriz de autovetores nas colunas e $\Lambda$ co
 
 O que não é óbvio, mas que pode ser visto deste modo:
 
-$$AS = A \cdot \begin{bmatrix}x_1 & x_2 \\x_1 & x_2\end{bmatrix} = \begin{bmatrix}\lambda_{1} x_1 & \lambda_{2} x_2 \\ \lambda_{1} x_1 & \lambda_{2} x_2\end{bmatrix} = \begin{bmatrix}x_1 & x_2 \\x_1 & x_2\end{bmatrix} \cdot \begin{bmatrix} \lambda_{1} & 0 \\ 0 & \lambda_{2}\end{bmatrix} = S \Lambda$$
+$$AS = A \cdot \begin{bmatrix}x_1 & x_2 \\\ x_1 & x_2\end{bmatrix} = \begin{bmatrix}\lambda_{1} x_1 & \lambda_{2} x_2 \\\ \lambda_{1} x_1 & \lambda_{2} x_2\end{bmatrix} = \begin{bmatrix}x_1 & x_2 \\\ x_1 & x_2\end{bmatrix} \cdot \begin{bmatrix} \lambda_{1} & 0 \\\ 0 & \lambda_{2}\end{bmatrix} = S \Lambda$$
 
 Caso não tenha ficado claro: cada coluna de S é um autovetor. Quando fazemos $AS$, obtemos uma matriz cujas colunas são os autovetores vezes seus respectivos autovalores (consequência direta de $Ax = \lambda x$). Essa matriz pode, enfim, ser "diagonalizada" separando esses seus dois componentes como mostrado.
 
