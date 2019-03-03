@@ -1,10 +1,13 @@
+---
+published: false
+---
 A sequência de fibonacci é uma velha conhecida dos que já estudaram programação. Por isso, esse post não deve soar tão estimulante para pessoas quem trabalham com programação há muito tempo, mas prometo que algo ainda pode ser aproveitado. Aqui pretendo mostrar três algoritmos para sequência, e eu fiquei impressionado com todos eles em diferentes épocas da minha vida.
 
 O primeiro deles é o mais usual. O segundo é por recursão. Já o terceiro é o que me motivou a fazer o post, nele fazemos uso extensivo de álgebra linear, e com isso podemos aprender muito mais a fundo sobre a natureza desses números, por exemplo, como eles estão crescendo?
 
 O primeiro eu vi pela primeira vez escrito em C++ num curso de informática que fiz. O segundo, num curso de [Introdução à Ciência da Computação](https://www.youtube.com/watch?v=ytpJdnlu9ug&list=PLUl4u3cNGP63WbdFxL8giv4yhgdMGaZNA) do MIT OpenCourseWare. E o terceiro na [aula 22](https://youtu.be/13r9QY6cmjc?t=2074) do curso de Linear Algebra do MIT Open Course Ware, com o Gilbert Strang, que, aliás, cada aula é uma obra-prima. O segredo estar em ver a sequência de Fibonacci como um sistema de equações lineares dinâmico, que evolui no tempo. E para entender melhor como isso funciona, precisamos introduzir o conceito de autovalores/autovetores primeiro. Mas vejamos os casos simples primeiro.
 
-***
+
 ##### A maneira comum
 
 Apenas para recordar o que é a sequência de fibonacci: dados os dois primeiros números da sequência (comumente 0 e 1), o próximo número é a soma dos dois que o precedem. 
@@ -50,7 +53,7 @@ Para comparação, vamos testar a eficiência dele.
 
     2.46 ms ± 96.5 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
     
-***
+
 ##### Por recursão
 
 Como não sou estudante de ciência da computação, esse eu conheci recentemente até e achei maravilhoso. Ele tem a vantagem de ser bem legível, limpo.
@@ -127,7 +130,7 @@ def f_rec_fib(n, memo = {0: 0, 1: 1}):
 
 Muito mais rápido. É bem impressionante o quanto essa técnica pôde melhorar o código. Uma coisa a se notar, no entanto, é que se você chamar a função com 10000, pelo menos aqui dá "stack overflow"... o que eu não esperava.
 
-***
+
 ##### Por Álgebra Linear
 
 https://youtu.be/13r9QY6cmjc?t=2074
@@ -251,4 +254,4 @@ Não surpreende por ser tão rápido, estamos usando o NumPy afinal.
 
 Mas a beleza dessa abordagem está menos em sua eficiência e mais no que a álgebra linear pode nos revelar. A partir dela pudemos entender muito melhor sobre esses números, o que governa o seu crescimento etc. Mas, além disso, problemas com sistemas dinâmicos como esse estão em todos os lugares, e lidar com eles requer inevitavelmente conhecer os autovetores/autovalores de uma matriz e como podemos usá-los. 
 
-A sequência de Fibonacci é um bom exemplo para introduzir esses conceitos da álgebra linear, cujo conhecimento é exigido por muitos outros problemas mais práticos/complexos, como Cadeias de Markov. 
+A sequência de Fibonacci é um bom exemplo para introduzir esses conceitos da álgebra linear, cujo conhecimento é exigido por muitos outros problemas mais práticos/complexos, como Cadeias de Markov.
