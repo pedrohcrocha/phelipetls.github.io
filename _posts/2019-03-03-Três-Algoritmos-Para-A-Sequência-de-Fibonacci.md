@@ -1,6 +1,3 @@
----
-published: false
----
 ![FibSeq](../images/kisspng-fibonacci-number-golden-spiral-golden-ratio-mathem-spiral-5b4a12ee4a0493.6897256215315811663032.png)
 
 A sequência de fibonacci é uma velha conhecida dos que estudam programação. Por isso, esse post não deve soar tão estimulante para pessoas que trabalham com programação há muito tempo, mas prometo que algo ainda pode ser aproveitado. Aqui pretendo mostrar três algoritmos para sequência, e todos eles foram importantes para melhorar meu entendimento de programação.
