@@ -4,7 +4,7 @@ A sequência de fibonacci é uma velha conhecida dos que estudam programação. 
 
 O primeiro deles é o mais usual. O segundo é por recursão. Já o terceiro é o que me motivou a fazer o post, nele faço uso extensivo de álgebra linear, e com isso é possível aprender muito mais a fundo sobre a natureza desses números, por exemplo, o que caracteriza o seu crescimento?
 
-O primeiro eu vi pela primeira vez escrito em C++ num curso de informática que fiz. O segundo, num curso de [Introdução à Ciência da Computação](https://www.youtube.com/watch?v=ytpJdnlu9ug&list=PLUl4u3cNGP63WbdFxL8giv4yhgdMGaZNA) do MIT OpenCourseWare. E o terceiro na [aula 22](https://youtu.be/13r9QY6cmjc) do curso de Linear Algebra do MIT OpenCourseWare, com Gilbert Strang, cujas aulas são obras-primas. O segredo desta maneira está em ver a sequência de Fibonacci como um sistema de equações lineares dinâmico, que evolui no tempo. E para entender melhor como isso funciona, precisamos introduzir o conceito de autovalores/autovetores primeiro. Mas primeiro vejamos os casos simples.
+O primeiro eu vi pela primeira vez escrito em C++ num curso de informática que fiz. O segundo, num curso de [Introdução à Ciência da Computação](https://www.youtube.com/watch?v=ytpJdnlu9ug&list=PLUl4u3cNGP63WbdFxL8giv4yhgdMGaZNA) do MIT OpenCourseWare. E o terceiro na [aula 22](https://youtu.be/13r9QY6cmjc) do curso de Linear Algebra do MIT OpenCourseWare, com Gilbert Strang, cujas aulas são masterpieces. O segredo desta maneira está em ver a sequência de Fibonacci como um sistema de equações lineares dinâmico, que evolui no tempo. E para entender melhor como isso funciona, precisamos introduzir o conceito de autovalores/autovetores primeiro. Mas primeiro vejamos os casos simples.
 
 
 ##### A maneira comum
