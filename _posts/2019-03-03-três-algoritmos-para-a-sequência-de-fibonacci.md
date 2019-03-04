@@ -176,7 +176,7 @@ Mas pode-se ver agora que é mais conveniente termos $u_0$ em uma nova "forma", 
 
 $$ u_k = A^ku_0 = S \Lambda^{k}S^{-1} Sc = S \Lambda^{k}c$$
 
-Isso implica que, no nosso caso, para uma matrix 2x2 (só dois autovetores), $u_k = c_1\lambda_{1}^{k}x_1 + c_2\lambda_{2}^{k}x_2$, onde os x são os autovetores.  O que indica que a evolução do nosso sistema de equações é totalmente ditada pelos autovalores (não importa quantas vezes a matriz A transforme os autovetores, a direção deles nunca muda). 
+Isso implica que, no nosso caso, para uma matrix 2x2 (só dois autovetores), $u_k = c_1\lambda_{1}^{k}x_1 + c_2\lambda_{2}^{k}x_2$, onde os $x_i$ são os autovetores, e o restante escalares.  O que indica que a evolução do nosso sistema de equações é totalmente ditada pelos autovalores (não importa quantas vezes a matriz A transforme os autovetores, a direção deles nunca muda). 
 
 Agora resta calcular tudo com o NumPy.
 
