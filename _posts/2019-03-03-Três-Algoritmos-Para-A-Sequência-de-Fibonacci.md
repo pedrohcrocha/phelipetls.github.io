@@ -147,9 +147,9 @@ Bom, para começar, é conveniente considerarmos um vetor base $u_0$, que no nos
 
 O que sugere de imediato que a resposta reside nas potências da matriz. Mas isso pode ser bem pesado matematicamente. Felizmente, existe uma maneira muito conveniente para resolver esses casos, e envolve os autovalores/autovetores (_eigenvalues/eigenvectors_) de uma matriz. Mas, afinal, o que são eles?
 
-Simply put, os autovetores são vetores característicos de uma matriz que, quando transformados por ela, não mudam de direção, mas é possível que mudem em magnitude dependendo do autovalor. Matematicamente, $$Ax = \lambda x$$
-
 ![Eigenvectors](../images/evectors.gif)
+
+Simply put, os autovetores são vetores característicos de uma matriz que, quando transformados por ela, não mudam de direção, mas é possível que mudem em magnitude dependendo do autovalor. Matematicamente, $$Ax = \lambda x$$
 
 Em que $x$ é um autovetor da matriz $A$ e $\lambda$ um autovalor do autovetor. Note que, por isso, o autovetor pode encolher (se $\lambda = 0.5$), ou aumentar (se $\lambda > 1$), ou apontar para a direção oposta (se $\lambda = -1$) quando transformado.
 
@@ -176,9 +176,11 @@ Só que agora, na verdade, vê-se que é mais conveniente termos $u_0$ em uma no
 
 $$ u_k = A^ku_0 = S \Lambda^{k}S^{-1} Sc = S \Lambda^{k}c.$$
 
-Isso implica que, no nosso caso, para uma matrix 2x2 (só dois autovetores), $u_k = c_1\lambda_{1}^{k}x_1 + c_2\lambda_{2}^{k}x_2$. O que indica que a evolução do nosso sistema de equações é totalmente ditada pelos autovalores (não importa quantas vezes a matriz A transforme os autovetores, a direção deles nunca muda). Agora resta calculá-los com o NumPy.
+Isso implica que, no nosso caso, para uma matrix 2x2 (só dois autovetores), $u_k = c_1\lambda_{1}^{k}x_1 + c_2\lambda_{2}^{k}x_2$, onde os x são os autovetores.  O que indica que a evolução do nosso sistema de equações é totalmente ditada pelos autovalores (não importa quantas vezes a matriz A transforme os autovetores, a direção deles nunca muda). 
 
-O primeiro passo é criar a matriz A. Logo depois, obter os autovalores/autovetores, nessa ordem, com a função ```numpy.linalg.eig()```.
+Agora resta calcular tudo com o NumPy.
+
+O primeiro passo é criar a matriz A. Logo depois, obter os autovalores/autovetores, nessa ordem, com a função _numpy.linalg.eig()_.
 
 
 ```python
@@ -207,7 +209,7 @@ Lambda = np.diag(evalues)
 c = np.linalg.solve(evectors, np.array([1, 0])[:, np.newaxis])
 ```
 
-Agora, vamos olhar a cara da nossa matriz $\Lambda$:
+Antes, vamos olhar para a nossa matriz $\Lambda$, porque ela pode revelar coisas interessantes:
 
 
 ```python
@@ -255,6 +257,6 @@ E quanto à sua eficiência?
 
 Não surpreende por ser tão rápido, estamos usando o NumPy afinal.
 
-Mas a beleza dessa abordagem está menos em sua eficiência e mais no que a álgebra linear pode nos revelar. A partir dela pudemos entender muito melhor sobre esses números, o que governa o seu crescimento etc. Mas, além disso, problemas com sistemas dinâmicos como esse estão em todos os lugares, e lidar com eles requer inevitavelmente conhecer os autovetores/autovalores de uma matriz e como podemos usá-los. 
+Mas a beleza dessa abordagem está menos em sua eficiência e mais no que a álgebra linear pode nos revelar. A partir dela pudemos entender muito melhor sobre esses números, o que governa o seu crescimento. Mas, além disso, problemas com sistemas dinâmicos como esse estão em todos os lugares, e lidar com eles requer inevitavelmente conhecer os autovetores/autovalores de uma matriz e como podemos usá-los. 
 
-A sequência de Fibonacci é um bom exemplo para introduzir esses conceitos da álgebra linear, cujo conhecimento é exigido por muitos outros problemas mais práticos/complexos, como Cadeias de Markov.
+A sequência de Fibonacci é um bom exemplo para introduzir esses conceitos da álgebra linear, cujo conhecimento é exigido por muitos outros problemas mais práticos/complexos, como Cadeias de Markov. Além de ser um tópico fascinante por si só. Antes de terminar o post, gostaria de recomendar para um melhor entendimento de tudo isso, a série de vídeos ["Essence of Linear Algebra"](https://www.youtube.com/watch?v=fNk_zzaMoSs&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab) do 3Blue1Brown e este [site](http://setosa.io/ev/eigenvectors-and-eigenvalues/) que tem visualizações do que acabamos de fazer aqui.
