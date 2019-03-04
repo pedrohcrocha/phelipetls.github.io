@@ -228,7 +228,7 @@ O primeiro número pode parecer familiar para o leitor, afinal é um dos mais fa
 
 $$u_k = c_1\cdot(1.618)^{k}\cdot x_1 + c_2\cdot(-0.618)^{k}\cdot x_2$$
 
-E fica evidente que, para um k muito grande, o número de ouro é o que governa o crescimento dos números, com o outro termo tentendo a 0 com k aumentando arbitrariamente. Fica claro também que esses números crescem em velocidade exponencial.
+E fica evidente que, para um k muito grande, o número de ouro é o que governa o crescimento dos números, com o outro termo tentendo a 0 com k aumentando arbitrariamente. Fica claro também que esses números crescem exponencialmente.
 
 Agora, vamos criar uma função para calcular $u_k$. Nela usaremos a matriz $S$ (evectors), o vetor c e a matriz $\Lambda$.
 
