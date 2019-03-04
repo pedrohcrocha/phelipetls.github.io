@@ -160,7 +160,7 @@ Daí que, tratando $S$ como uma matriz de autovetores nas colunas e $\Lambda$ co
 O que não é óbvio, mas que pode ser visto deste modo:
 
 {: .center}
-$AS = A \cdot \begin{bmatrix}x_1 & x_2 \\\ x_1 & x_2\end{bmatrix} = \begin{bmatrix}\lambda_{1} x_1 & \lambda_{2} x_2 \\\ \lambda_{1} x_1 & \lambda_{2} x_2\end{bmatrix} = \begin{bmatrix}x_1 & x_2 \\\ x_1 & x_2\end{bmatrix} \cdot \begin{bmatrix} \lambda_{1} & 0 \\\ 0 & \lambda_{2}\end{bmatrix} = S \Lambda$
+$A \cdot \begin{bmatrix}x_1 & x_2 \\\ x_1 & x_2\end{bmatrix} = \begin{bmatrix}\lambda_{1} x_1 & \lambda_{2} x_2 \\\ \lambda_{1} x_1 & \lambda_{2} x_2\end{bmatrix} = \begin{bmatrix}x_1 & x_2 \\\ x_1 & x_2\end{bmatrix} \cdot \begin{bmatrix} \lambda_{1} & 0 \\\ 0 & \lambda_{2}\end{bmatrix}$
 
 Caso não tenha ficado claro: cada coluna de S é um autovetor. Quando fazemos $AS$, obtemos uma matriz cujas colunas são os autovetores vezes seus respectivos autovalores (consequência direta de $Ax = \lambda x$). Essa matriz pode, enfim, ser "diagonalizada" separando esses seus dois componentes como mostrado.
 
