@@ -132,7 +132,7 @@ O que é muito mais rápido. É bem impressionante o quanto essa técnica pôde 
 
 ##### Por Álgebra Linear
 
-<iframe width="560" height="315" src="https://youtu.be/13r9QY6cmjc?t=2074" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://youtube.com/embed/13r9QY6cmjc?t=2074" frameborder="0" allowfullscreen></iframe>
 
 Finalmente, matrizes. Comecemos primeiro com a equação básica, $F_n = F_{n-1} + F_{n-2}$. 
 
