@@ -151,7 +151,7 @@ O que sugere de imediato que a resposta reside nas potências da matriz. Mas iss
 
 Simply put, os autovetores são vetores característicos de uma matriz que, após transformados por ela, não mudam de direção, mas é possível que mudem em magnitude dependendo do autovalor. Matematicamente, $$Ax = \lambda x$$
 
-Em que $x$ é um autovetor da matriz $A$ e $\lambda$ um autovalor do autovetor. Note que, por isso, o autovetor pode encolher (se $0 < \lambda < 1$), ou aumentar (se $\lambda > 1$), ou apontar para a direção oposta (se $\lambda = -1$) quando transformado.
+Em que $x$ é um autovetor da matriz $A$ e $\lambda$ um autovalor do autovetor. Note que, por isso, o autovetor pode encolher (se $0 < \lambda < 1$), ou aumentar (se $\lambda > 1$), ou apontar para a direção oposta (se $\lambda < 0$) quando transformado.
 
 Agora, o próximo passo, um grande passo, é notar que nós podemos decompor a matriz $A$ em seus autovetores e autovalores. Isto é possível se os autovetores forem todos linearmente independentes.
 
