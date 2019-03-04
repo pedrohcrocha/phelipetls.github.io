@@ -255,7 +255,7 @@ E quanto à sua eficiência?
     32.8 µs ± 1.46 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
     
 
-Não surpreende por ser tão rápido, estamos usando o NumPy afinal.
+Não surpreende ser tão rápido, estamos usando o NumPy afinal.
 
 Mas a beleza dessa abordagem está menos em sua eficiência e mais no que a álgebra linear pode nos revelar. A partir dela pudemos entender muito melhor sobre esses números, o que governa o seu crescimento. Mas, além disso, problemas com sistemas dinâmicos como esse estão em todos os lugares, e lidar com eles requer inevitavelmente conhecer os autovetores/autovalores de uma matriz e como podemos usá-los. 
 
