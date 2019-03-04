@@ -1,10 +1,13 @@
-![FibSeq](../images/fibseq.png)
+---
+published: false
+---
+![FibSeq](../images/kisspng-fibonacci-number-golden-spiral-golden-ratio-mathem-spiral-5b4a12ee4a0493.6897256215315811663032.png)
 
-A sequência de fibonacci é uma velha conhecida dos que já estudaram programação. Por isso, esse post não deve soar tão estimulante para pessoas quem trabalham com programação há muito tempo, mas prometo que algo ainda pode ser aproveitado. Aqui pretendo mostrar três algoritmos para sequência, e eu fiquei impressionado com todos eles em diferentes épocas da minha vida.
+A sequência de fibonacci é uma velha conhecida dos que estudam programação. Por isso, esse post não deve soar tão estimulante para pessoas que trabalham com programação há muito tempo, mas prometo que algo ainda pode ser aproveitado. Aqui pretendo mostrar três algoritmos para sequência, e todos eles foram importantes para melhorar meu entendimento de programação.
 
-O primeiro deles é o mais usual. O segundo é por recursão. Já o terceiro é o que me motivou a fazer o post, nele fazemos uso extensivo de álgebra linear, e com isso podemos aprender muito mais a fundo sobre a natureza desses números, por exemplo, como eles estão crescendo?
+O primeiro deles é o mais usual. O segundo é por recursão. Já o terceiro é o que me motivou a fazer o post, nele faço uso extensivo de álgebra linear, e com isso é possível aprender muito mais a fundo sobre a natureza desses números, por exemplo, o que caracteriza o seu crescimento?
 
-O primeiro eu vi pela primeira vez escrito em C++ num curso de informática que fiz. O segundo, num curso de [Introdução à Ciência da Computação](https://www.youtube.com/watch?v=ytpJdnlu9ug&list=PLUl4u3cNGP63WbdFxL8giv4yhgdMGaZNA) do MIT OpenCourseWare. E o terceiro na [aula 22](https://youtu.be/13r9QY6cmjc?t=2074) do curso de Linear Algebra do MIT Open Course Ware, com o Gilbert Strang, que, aliás, cada aula é uma obra-prima. O segredo estar em ver a sequência de Fibonacci como um sistema de equações lineares dinâmico, que evolui no tempo. E para entender melhor como isso funciona, precisamos introduzir o conceito de autovalores/autovetores primeiro. Mas vejamos os casos simples primeiro.
+O primeiro eu vi pela primeira vez escrito em C++ num curso de informática que fiz. O segundo, num curso de [Introdução à Ciência da Computação](https://www.youtube.com/watch?v=ytpJdnlu9ug&list=PLUl4u3cNGP63WbdFxL8giv4yhgdMGaZNA) do MIT OpenCourseWare. E o terceiro na [aula 22](https://youtu.be/13r9QY6cmjc?t=2074) do curso de Linear Algebra do MIT Open Course Ware, com Gilbert Strang, um mestre em ensinar. O segredo desta maneira está em ver a sequência de Fibonacci como um sistema de equações lineares dinâmico, que evolui no tempo. E para entender melhor como isso funciona, precisamos introduzir o conceito de autovalores/autovetores primeiro. Mas primeiro vejamos os casos simples.
 
 
 ##### A maneira comum
@@ -39,11 +42,11 @@ def std_fib(n):
 
 Acredito que não muito possa ser dito sobre este algoritmo, mas é interessante tentar escrevê-lo de um jeito mais _pythonic_. 
 
-Por exemplo, legal pontuar como atribuí os valores às variáveis. O que tá rolando ali é chamado de tuple assignment. No Python, você pode atribuir o conteúdo de uma lista, tuple etc. numa única linha, em outra linguagem talvez precisaríamos de variáveis temporárias para isso.
+Por exemplo, legal pontuar como atribuí os valores às variáveis. O que tá rolando ali é chamado de tuple assignment. No Python, você pode atribuir o conteúdo de uma lista, tuple etc. a variáveis numa única linha. Em outra linguagem talvez precisaríamos de variáveis temporárias para isso.
 
-Caso alguém nunca tenha visto esse algoritmo, segue uma explicação. Primeiro atribuímos à variável "a" o valor 0, e à "b" o valor 1. Depois, no loop, calculamos o número de fibonacci, que é a soma desses dois. O primeiro, então, é 1. Em seguida, o que fazemos é atribuir à "a" o valor de "b" e à "b" o valor do número de fibonacci, de forma que no próximo loop, a soma será 1 + 1, e no próximo 1 + 2, 2 + 3 etc.
+Caso alguém nunca tenha visto esse algoritmo, poso explicar brevemente. Primeiro atribuímos à variável "a" o valor 0, e à "b" o valor 1. Depois, no loop, calculamos o número de fibonacci, que é a soma desses dois. O primeiro, então, é 1. Em seguida, o que fazemos é atribuir à "a" o valor de "b" e à "b" o valor do número de fibonacci, de forma que no próximo loop, a soma será 1 + 1, e no próximo 1 + 2, 2 + 3 etc.
 
-Para comparação, vamos testar a eficiência dele.
+Para comparação, vamos testar sua performance em termos de eficiência.
 
 
 ```python
@@ -93,11 +96,11 @@ Para calcular o vigésimo número ele demorou muito mais do que o algoritmo ante
 
 ![Fib](../images/fibo.png)
 
-O que acontece é que a função recursiva acaba requisitando os mesmos números de fibonaccis múltiplas vezes e, para números muito grandes, esse excesso de chamadas desnecessárias prejudica muito a perfomance do algoritmo. Muito mesmo, se você chamar a função com 60 como argumento, talvez não tenha paciência para esperar ela terminar de calcular.
+O que acontece é que a função recursiva acaba requisitando os mesmos números de fibonacci múltiplas vezes e, para números muito grandes, esse excesso de chamadas desnecessárias prejudica muito a perfomance do algoritmo. Muito mesmo, se você chamar a função com 60 como argumento, talvez não tenha paciência para esperar ela terminar de calcular.
 
 Existe um jeito bem simples de resolver esse problema, que vem da assim chamada programação dinâmica, um conjunto de técnicas para otimização de algoritmos. A técnica que cabe usar aqui é chamada de memoization, e consiste em "reciclar" os valores que já calculamos previamente, para não precisar recalculá-los. Isso é exatamente o que precisamos!
 
-Agora, como poderíamos fazer isso? Um jeito bem eficiente é usar um hash table, o que no Python é um set ou um dictionary. A vantagem dessa estrutura de dados é que o tempo de procura independe de quantos dados armazenados você tem ali. Vamos para o código.
+Agora, como poderíamos fazer isso? Um jeito bem eficiente é usar um hash table, o que no Python é um set ou um dictionary. A vantagem dessa estrutura de dados é que o tempo de procura independe de quantos dados armazenados você tem ali:
 
 
 ```python
@@ -127,7 +130,7 @@ def f_rec_fib(n, memo = {0: 0, 1: 1}):
     183 ns ± 8.12 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
     
 
-Muito mais rápido. É bem impressionante o quanto essa técnica pôde melhorar o código. Uma coisa a se notar, no entanto, é que se você chamar a função com 10000, pelo menos aqui dá "stack overflow"... o que eu não esperava.
+O que é muito mais rápido. É bem impressionante o quanto essa técnica pôde melhorar o código. Uma coisa a se notar, no entanto, é que se você chamar a função com 10000, pelo menos com esse código, dá "stack overflow"... o que eu não esperava e honestamente nem sei por que é assim.
 
 
 ##### Por Álgebra Linear
@@ -136,18 +139,20 @@ https://youtu.be/13r9QY6cmjc?t=2074
 
 Finalmente, matrizes. Comecemos primeiro com a equação básica, $F_n = F_{n-1} + F_{n-2}$. 
 
-Só que, para termos um sistema de equações lineares, precisamos de mais uma equação pelo menos. A escolha mais simples é: $F_{n-1} = F_{n-1} + 0\cdot F_{n-2}$. O que, em linguagem de matrizes, pode ser escrito como:
+Mas, para termos um sistema de equações lineares, precisamos de mais uma equação pelo menos. A escolha mais simples é: $F_{n-1} = F_{n-1} + 0\cdot F_{n-2}$. O que, em linguagem de matrizes, pode ser escrito como:
 
 {: .center}
 $\begin{bmatrix}F_{n} \\\ F_{n-1}\end{bmatrix} = \begin{bmatrix}1 & 1\\\1 & 0\end{bmatrix} \cdot \begin{bmatrix}F_{n-1} \\\ F_{n-2}\end{bmatrix}$
 
-Uma denominação mais interessante para essa relação é: $ u_{t+1} = Au_t $. O papel que desempenha a matriz A é o de transformar o vetor no "tempo" t para nos dar o vetor no "tempo" seguinte. Estamos lidando aqui com um sistema dinâmico, que evolui no tempo, e agora, queremos saber, por exemplo, qual o $u_{100}$. Como podemos fazer isso? 
+Uma denominação mais interessante para essa relação é: $ u_{t+1} = Au_t $. O papel que desempenha a matriz A é o de transformar o vetor no "tempo" t para nos dar o vetor no "tempo" seguinte. Estamos lidando aqui com um sistema dinâmico, que evolui no tempo, e queremos saber, por exemplo, qual o $u_{10000}$. Como podemos fazer isso? 
 
 Bom, para começar, é conveniente considerarmos um vetor base $u_0$, que no nosso caso pode ser perfeitamente $\begin{bmatrix} 1 \\\ 0 \end{bmatrix}$. Assim, segue diretamente que $u_1 = Au_0$. E, disso, que $u_2 = Au_1 = A \cdot A \cdot u_0 = A^2u_0$. Logo, a fórmula geral é: $$u^k = A^ku_0$$.
 
 O que sugere de imediato que a resposta reside nas potências da matriz. Mas isso pode ser bem pesado matematicamente. Felizmente, existe uma maneira muito conveniente para resolver esses casos, e envolve os autovalores/autovetores (_eigenvalues/eigenvectors_) de uma matriz. Mas, afinal, o que são eles?
 
 Simply put, os autovetores são vetores característicos de uma matriz que, quando transformados por ela, não mudam de direção, mas é possível que mudem em magnitude dependendo do autovalor. Matematicamente, $$Ax = \lambda x$$
+
+![Eigenvectors](../images/evectors.gif)
 
 Em que $x$ é um autovetor da matriz $A$ e $\lambda$ um autovalor do autovetor. Note que, por isso, o autovetor pode encolher (se $\lambda = 0.5$), ou aumentar (se $\lambda > 1$), ou apontar para a direção oposta (se $\lambda = -1$) quando transformado.
 
