@@ -172,9 +172,9 @@ $$A^k = S \Lambda^{k}S^{-1}$$
 
 Retomando lá do início, $u_k = A^ku_0$ pode ser reescrito agora como $u_k = S \Lambda^{k}S^{-1}u_0$. 
 
-Só que agora, na verdade, vê-se que é mais conveniente termos $u_0$ em uma nova "forma", mais especificamente, como uma combinação linear dos autovetores, $Sc = u_0$, onde c é o vetor de coeficientes que resolve esse sistema de equações, $c = S^{-1}u_0$. E, assim, nós temos tudo o que precisamos porque 
+Mas pode-se ver agora que é mais conveniente termos $u_0$ em uma nova "forma", uma nova "base", mais especificamente, como uma combinação linear dos autovetores, $Sc = u_0$, onde c é o vetor de coeficientes que resolve esse sistema de equações, $c = S^{-1}u_0$. E, assim, nós temos tudo o que precisamos porque 
 
-$$ u_k = A^ku_0 = S \Lambda^{k}S^{-1} Sc = S \Lambda^{k}c.$$
+$$ u_k = A^ku_0 = S \Lambda^{k}S^{-1} Sc = S \Lambda^{k}c$$
 
 Isso implica que, no nosso caso, para uma matrix 2x2 (só dois autovetores), $u_k = c_1\lambda_{1}^{k}x_1 + c_2\lambda_{2}^{k}x_2$, onde os x são os autovetores.  O que indica que a evolução do nosso sistema de equações é totalmente ditada pelos autovalores (não importa quantas vezes a matriz A transforme os autovetores, a direção deles nunca muda). 
 
