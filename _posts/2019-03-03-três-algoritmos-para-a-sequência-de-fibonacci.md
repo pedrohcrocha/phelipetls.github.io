@@ -153,7 +153,7 @@ Simply put, os autovetores são vetores característicos de uma matriz que, apó
 
 Em que $x$ é um autovetor da matriz $A$ e $\lambda$ um autovalor do autovetor. Note que, por isso, o autovetor pode encolher (se $0 < \lambda < 1$), ou aumentar (se $\lambda > 1$), ou apontar para a direção oposta (se $\lambda < 0$) quando transformado.
 
-Agora, o próximo passo, um grande passo, é notar que nós podemos decompor a matriz $A$ em seus autovetores e autovalores. Isto é possível se os autovetores forem todos linearmente independentes.
+Agora, o próximo passo, um grande passo, é notar que nós podemos decompor a matriz $A$ em seus autovetores e autovalores. Isto é possível se os autovetores forem todos linearmente independentes, caso em que uma matriz cheia de autovetores tem uma inversa, e isso será crucial para nós.
 
 Daí que, tratando $S$ como uma matriz de autovetores nas colunas e $\Lambda$ como uma matriz de autovalores na diagonal e zeros em todo o resto, podemos afirmar que $$AS = S\Lambda$$ 
 
