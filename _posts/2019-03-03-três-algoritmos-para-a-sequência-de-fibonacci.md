@@ -224,11 +224,11 @@ Lambda
 
 
 
-O primeiro número pode parecer familiar para o leitor, afinal é um dos mais famosos, o número de ouro. E é precisamente ele que descreve como os números de fibonacci estão crescendo!! Como sabemos que $u_k = c_1\lambda_{1}^{k}x_1 + c_2\lambda_{2}^{k}x_2$, substituindo temos:
+O primeiro número pode parecer familiar para o leitor, afinal é um dos mais famosos: o número de ouro. E é precisamente ele que descreve como os números de Fibonacci estão crescendo!! Como sabemos que $u_k = c_1\lambda_{1}^{k}x_1 + c_2\lambda_{2}^{k}x_2$, substituindo temos:
 
 $$u_k = c_1\cdot(1.618)^{k}\cdot x_1 + c_2\cdot(-0.618)^{k}\cdot x_2$$
 
-E fica evidente que, para um k muito grande, o primeiro autovalor é o que determina como os números crescem. E eles crescem exponencialmente rápido!
+E fica evidente que, para um k muito grande, o número de ouro é o que determina como os números crescem. E eles crescem exponencialmente rápido!
 
 Agora, vamos criar uma função para calcular $u_k$. Nela usaremos a matriz $S$ (evectors), o vetor c e a matriz $\Lambda$.
 
