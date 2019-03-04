@@ -149,7 +149,7 @@ O que sugere de imediato que a resposta reside nas potências da matriz. Mas iss
 
 ![Eigenvectors](../images/evectors.gif)
 
-Simply put, os autovetores são vetores característicos de uma matriz que, quando transformados por ela, não mudam de direção, mas é possível que mudem em magnitude dependendo do autovalor. Matematicamente, $$Ax = \lambda x$$
+Simply put, os autovetores são vetores característicos de uma matriz que, após transformados por ela, não mudam de direção, mas é possível que mudem em magnitude dependendo do autovalor. Matematicamente, $$Ax = \lambda x$$
 
 Em que $x$ é um autovetor da matriz $A$ e $\lambda$ um autovalor do autovetor. Note que, por isso, o autovetor pode encolher (se $\lambda = 0.5$), ou aumentar (se $\lambda > 1$), ou apontar para a direção oposta (se $\lambda = -1$) quando transformado.
 
