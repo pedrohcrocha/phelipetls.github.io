@@ -162,7 +162,7 @@ O que não é óbvio, mas que pode ser visto deste modo:
 {: .center}
 $A \cdot \begin{bmatrix}x_1 & x_2 \\\ x_1 & x_2\end{bmatrix} = \begin{bmatrix}\lambda_{1} x_1 & \lambda_{2} x_2 \\\ \lambda_{1} x_1 & \lambda_{2} x_2\end{bmatrix} = \begin{bmatrix}x_1 & x_2 \\\ x_1 & x_2\end{bmatrix} \cdot \begin{bmatrix} \lambda_{1} & 0 \\\ 0 & \lambda_{2}\end{bmatrix}$
 
-Caso não tenha ficado claro: cada coluna de S é um autovetor. Quando fazemos $AS$, obtemos uma matriz cujas colunas são os autovetores vezes seus respectivos autovalores (consequência direta de $Ax = \lambda x$). Essa matriz pode, enfim, ser "diagonalizada" separando esses seus dois componentes como mostrado.
+Caso não tenha ficado claro: cada coluna de $S$ é um autovetor. Quando fazemos $AS$, obtemos uma matriz cujas colunas são os autovetores vezes seus respectivos autovalores (consequência direta de $Ax = \lambda x$). Essa matriz pode, enfim, ser "diagonalizada" separando esses seus dois componentes como mostrado.
 
 Ok, mas por que isso é útil? Queremos investigar as potências de uma matriz afinal! Essa decomposição de matriz serve justamente para esse propósito. Vejamos.
 
@@ -172,7 +172,7 @@ $$A^k = S \Lambda^{k}S^{-1}$$
 
 Retomando lá do início, $u_k = A^ku_0$ pode ser reescrito agora como $u_k = S \Lambda^{k}S^{-1}u_0$. 
 
-Mas pode-se ver agora que é mais conveniente termos $u_0$ em uma nova "forma", uma nova "base", mais especificamente, como uma combinação linear dos autovetores, $Sc = u_0$, onde c é o vetor de coeficientes que resolve esse sistema de equações, $c = S^{-1}u_0$. E, assim, nós temos tudo o que precisamos porque 
+Mas notemos agora que é mais interessante termos $u_0$ em uma nova "forma", mais especificamente, como uma combinação linear dos autovetores, $Sc = u_0$, onde c é o vetor de coeficientes que resolve esse sistema de equações, $c = S^{-1}u_0$. E, assim, nós temos tudo o que precisamos porque 
 
 $$ u_k = A^ku_0 = S \Lambda^{k}S^{-1} Sc = S \Lambda^{k}c$$
 
