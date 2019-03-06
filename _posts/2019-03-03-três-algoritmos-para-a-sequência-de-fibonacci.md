@@ -12,6 +12,7 @@ O primeiro eu vi pela primeira vez escrito em C++ num curso de informática que 
 Apenas para recordar o que é a sequência de fibonacci: dados os dois primeiros números da sequência (comumente 0 e 1), o próximo número é a soma dos dois que o precedem. 
 
 $$F_0 = 0, F_1 = 1$$
+
 $$F_n = F_{n-1} + F_{n-2}$$
 
 Com isso em mente, podemos escrever o algoritmo que muitos já devem conhecer.
@@ -89,7 +90,7 @@ E é uma boa maneira de introduzir o conceito de recursão na computação. Agor
     4.81 ms ± 625 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
     
 
-Para calcular o vigésimo número ele demorou muito mais do que o algoritmo anterior, que calculou um número muito maior!! Por quê será que isso aconteceu? Uma imagem pode ajudar a ilustrar o porquê disso.
+Para calcular o vigésimo número ele demorou muito mais do que o algoritmo anterior, que calculou um número muito maior!! Por que será que isso aconteceu? Uma imagem pode ajudar a ilustrar o porquê disso.
 
 ![Fib](../images/fibo.png)
 
