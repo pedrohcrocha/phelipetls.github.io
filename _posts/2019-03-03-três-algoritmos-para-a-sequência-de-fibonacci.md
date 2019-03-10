@@ -102,19 +102,19 @@ Agora, como poderíamos fazer isso? Um jeito bem eficiente é usar um hash table
 
 
 ```python
-def f_rec_fib(n, memo = {0: 0, 1: 1}):
+def ffib(n, memo = {0: 0, 1: 1}):
     try: # tente retornar um valor no 'memorizador'
         return memo[n]
     
     except: # se não conseguir, calcule o numero
-        fib = f_rec_fib(n-1) + f_rec_fib(n-2)
+        fib = ffib(n-1) + ffib(n-2)
         memo[n] = fib # guarde-o
         return memo[n]
 ```
 
 
 ```python
-%timeit f_rec_fib(20)
+%timeit ffib(20)
 ```
 
     178 ns ± 0.385 ns per loop (mean ± std. dev. of 7 runs, 10000000 loops each)
@@ -122,7 +122,7 @@ def f_rec_fib(n, memo = {0: 0, 1: 1}):
 
 
 ```python
-%timeit f_rec_fib(1000)
+%timeit ffib(1000)
 ```
 
     183 ns ± 8.12 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
