@@ -173,7 +173,7 @@ $$A^k = S \Lambda^{k}S^{-1}$$
 
 E assim vemos o quanto a decomposição pode simplificar a exponenciação de uma matriz! Agora, retomando lá do início, $u_k = A^ku_0$ pode ser reescrito como $u_k = S \Lambda^{k}S^{-1}u_0$. 
 
-Mas perceba que seria mais interessante termos $u_0$ em uma nova "forma", mais especificamente, como uma combinação linear dos autovetores, $Sc = u_0$, onde c é o vetor de coeficientes que resolve esse sistema de equações, $c = S^{-1}u_0$, porque assim cancelaríamos o $S^{-1}$ com o $S$ dessa nova forma. E, assim, nós temos tudo o que precisamos porque 
+Mas perceba que seria mais interessante termos $u_0$ em uma nova "forma", mais especificamente, como uma combinação linear dos autovetores, $Sc = u_0$, onde c é o vetor de coeficientes que resolve esse sistema de equações, $c = S^{-1}u_0$. E, com isso, nós temos tudo que precisamos porque 
 
 $$ u_k = A^ku_0 = S \Lambda^{k}S^{-1} Sc = S \Lambda^{k}c$$
 
