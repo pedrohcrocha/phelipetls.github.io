@@ -165,15 +165,15 @@ $A \cdot \begin{bmatrix}x_1 & x_2 \\\ x_1 & x_2\end{bmatrix} = \begin{bmatrix}\l
 
 Caso não tenha ficado claro: cada coluna de $S$ é um autovetor. Quando fazemos $AS$, obtemos uma matriz cujas colunas são os autovetores vezes seus respectivos autovalores (consequência direta de $Ax = \lambda x$). Essa matriz pode, enfim, ser "diagonalizada" separando esses seus dois componentes como mostrado.
 
-Ok, mas por que isso é útil? Queremos investigar as potências de uma matriz afinal! Essa decomposição de matriz serve justamente para esse propósito. Vejamos.
+Ok, mas por que isso é útil? Queremos investigar as potências de uma matriz afinal! Essa decomposição de matriz serve justamente a esse propósito. Vejamos.
 
 Vamos multiplicar $AS$ pela direita por $S^{-1}$. Isso dá: $A = S\Lambda S^{-1}$, já que $SS^{-1} = I$. Agora, $A^2 = S\Lambda S^{-1}S\Lambda S^{-1} = S \Lambda^{2}S^{-1}$. E, em geral:
 
 $$A^k = S \Lambda^{k}S^{-1}$$
 
-Retomando lá do início, $u_k = A^ku_0$ pode ser reescrito agora como $u_k = S \Lambda^{k}S^{-1}u_0$. 
+E assim vemos o quanto a decomposição pode simplificar a exponenciação de uma matriz! Agora, retomando lá do início, $u_k = A^ku_0$ pode ser reescrito como $u_k = S \Lambda^{k}S^{-1}u_0$. 
 
-Mas notemos agora que é mais interessante termos $u_0$ em uma nova "forma", mais especificamente, como uma combinação linear dos autovetores, $Sc = u_0$, onde c é o vetor de coeficientes que resolve esse sistema de equações, $c = S^{-1}u_0$. E, assim, nós temos tudo o que precisamos porque 
+Mas perceba que seria mais interessante termos $u_0$ em uma nova "forma", mais especificamente, como uma combinação linear dos autovetores, $Sc = u_0$, onde c é o vetor de coeficientes que resolve esse sistema de equações, $c = S^{-1}u_0$, porque assim cancelaríamos o $S^{-1}$ com o $S$ dessa nova forma. E, assim, nós temos tudo o que precisamos porque 
 
 $$ u_k = A^ku_0 = S \Lambda^{k}S^{-1} Sc = S \Lambda^{k}c$$
 
