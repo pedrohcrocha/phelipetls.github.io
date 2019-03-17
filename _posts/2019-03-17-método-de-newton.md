@@ -38,19 +38,19 @@ Ok, mas como chegamos até ali com cálculo diferencial? O raciocínio é como s
 
 Com esse valor, a ideia é obter a reta tangente àquele ponto, o que é algo muito mais fácil de lidar. Mas para isso, é claro que precisamos calcular $f^{'}(1)$, a inclinação dessa reta quando $x = 1$.
 
-E, com ela em mãos, queremos achar onde ela intercepta o eixo x, e este deve ser um ponto próximo da raiz, mas não exatamente a raiz. Isto porque estamos calculando a raiz de uma reta pra nos aproximarmos da raiz de uma parábola, que não é linear, é claro.
+E, com ela em mãos, queremos achar onde _essa reta_ intercepta o eixo x, e este deve ser um ponto próximo da raiz, mas não exatamente a raiz. Isto porque estamos calculando a raiz de uma reta pra nos aproximarmos da raiz de uma parábola, que não é linear, é claro.
 
-Até então, o método não parece tão impressionante. Mas e se fizermos isso de novo, usando como estimativa esse novo intercepto-x? Acontece que se repetirmos esse processo algumas vezes podemos chegar numa estimativa _muito_ próxima da solução.
+Até então, o método não parece tão impressionante. Mas e se fizermos isso de novo, usando como estimativa a raiz dessa reta? Acontece que se repetirmos esse processo algumas vezes podemos chegar numa estimativa _muito_ próxima da solução.
 
 ##### Aproximação Linear
 
-Esse uso da reta tangente é o que se conhece por aproximação linear. Por exemplo, retomando a função quadrática. A derivada dela é obtida pela regra da potência, $\frac{d(x^2)}{dx} = 2x$. Já a equação da tangente vem simplesmente da equação de uma reta:
+Esse uso da reta tangente é o que se conhece por aproximação linear. Por exemplo, retomando a função quadrática. A derivada dela é obtida pela regra da potência, $\frac{d(x^2)}{dx} = 2x$. Já a equação da tangente é obtida simplesmente da equação de uma reta:
 
 $$ \Delta y = f'(x)\Delta x \\
    (y - y_0) = f'(x_0)(x - x_0) \\
    y = y_0 + m(x - x_0)$$
    
-No nosso caso, queremos achar a reta tangente quando $x = 1$, sendo $f(x) = x^2 - 5 = 1 - 5 = -4$. Logo, a reta que tangencia o ponto $(1, -4)$:
+No nosso caso, queremos achar a reta tangente quando $x_0 = 1$, sendo $f(x_0) = x^2 - 5 = 1 - 5 = -4$. Logo, a reta que tangencia o ponto $(1, -4)$:
 
 $$ y = y_0 + 2x(x - x_0) \\
    y = -4 + 2\cdot 1(x - 1) \\
@@ -58,11 +58,11 @@ $$ y = y_0 + 2x(x - x_0) \\
    y = 2x - 6
 $$
 
-Mas, é importante notar que essa função é a _equação da reta tangente a um ponto (x, y) da função f(x)_. Então, o que isso tudo realmente quer dizer é que, para um dado número $a$, o valor de $f(a) \approx y(a)$, quando $a \approx x$.
+Mas, é importante notar que essa função é a _equação da reta tangente a um ponto (x, y) da função f(x)_. Então, o que isso tudo realmente quer dizer é que, para um dado número $a$, o valor de $f(a) \approx y(a)$, quando $a \approx x$. E estamos realmente interessados na função $f(x)$, na parábola.
 
 $$f(x) \approx y_0 + m(x - x_0)$$
 
-No gráfico abaixo isso pode ser melhor visualizado. Perceba que para valores próximos de 1, a tangente está bem próxima da parábola, mas vai ficando cada vez mais distante quando x difere muito de 1. E é esse o sentido de uma aproximação linear.
+No gráfico abaixo isso pode ser melhor visualizado. Perceba que para valores próximos de 1, a tangente está bem próxima da parábola, mas vai ficando cada vez mais distante quando x se afasta de 1. E é esse o sentido de uma aproximação linear.
 
 
 ```python
@@ -82,7 +82,9 @@ plt.legend()
 
 Nesse zoom, também podemos ver que a reta tangente ao ponto $(1, -4)$ cruza o eixo $x$ um pouco mais adiante de $2.23$. Mais especificamente, quando $2x - 6 = 0 \Rightarrow 2x = 6 \Rightarrow x = 3$.
 
-E é exatamente nisso que consiste o Método de Newton, em se aproximar cada vez mais da raiz de $f(x)$ usando a tangente em um dado ponto desta função. Assim, nosso objetivo fica um pouco mais delineado: queremos sempre o valor de $x$ da reta tangente que faz com que $y = 0$:
+O que é um pouco mais próximo da raiz do que a estimativa inicial 1. E é exatamente nisso que consiste o Método de Newton, em se aproximar cada vez mais da raiz de $f(x)$ usando a tangente em um dado ponto desta função. 
+
+Assim, nosso objetivo fica melhor delineado dessa forma: queremos sempre o valor de $x$ da reta tangente a um ponto $(x, f(x))$ que faz com que $y = 0$:
 
 $$ y - y_0 = m(x - x_0) \\
    \text{ dividindo tudo por m e sumindo com o y: } \\
@@ -101,11 +103,11 @@ $$ x = 3 - \frac{3^2 - 5}{2\cdot3} = 3 - \frac{4}{6} = 1 - (2/3) = 3 - 1/3 \appr
 
 O que já se aproxima razoavelmente de $\sqrt{5} \approx 2.2360679$.
 
-Seria interessante criarmos um algoritmo para resolver esse tipo de problema, e ele inevitavelmente teria que saber lidar com o cálculo de derivadas. Para isso, existe uma biblioteca que lida com álgebra simbólica que pode nos ajudar, SymPy.
+Seria interessante escrevermos uma função para fazer esses cálculos, e ela inevitavelmente teria que saber saber como diferenciar uma função. Existe uma biblioteca que pode nos ajudar, SymPy.
 
 ##### Introdução ao SymPy
 
-Essa biblioteca fornece suporte para trabalhar com álgebra simbólica, cálculo etc. Por exemplo, com ela podemos calcular limites, derivadas, integrais, expandir polinômicos, simplificar expressões etc.
+Essa biblioteca fornece suporte para trabalhar com álgebra simbólica. Nela contamos com funções para calcular limites, derivadas, integrais, expandir polinômicos, simplificar expressões etc.
 
 Por exemplo, se quisermos calcular a derivada da função $x^2 - 5$.
 
@@ -153,15 +155,15 @@ integrate(x**2)
 
 
 
-A função assim como está não serve para retornar qualquer valor, ela praticamente só aceita funções do próprio SymPy. Para a utilizarmos como uma função qualquer, devemos usar a função ``` lambdify()```. E com isso podemos partir para o algoritmo.
+A função assim como está não serve para retornar qualquer valor, ela praticamente só aceita funções do próprio SymPy. Para a utilizarmos como uma função qualquer, devemos usar ``` lambdify()```.
 
-##### O algoritmo
+##### Um código para o algoritmo
 
 Antes de apresentar a função em si, melhor explicar como eu a pensei.
 
 Primeiramente, ela tomará três argumentos: a função em si, o valor para o qual queremos uma solução, e a estimativa inicial. Por exemplo, no nosso caso, ela tomaria os argumentos $x^2$, $5$ e $1$.
 
-Em seguida, construirei com estes argumentos nossa $f(x)$ e sua derivada, $f'(x)$. E com isso temos tudo que precisamos para executarmos o método. 
+Em seguida, construirei simbolicamente, com estes argumentos, nossa $f(x)$ e sua derivada, $f'(x)$. E com isso temos tudo que precisamos para executarmos o método. 
 
 No algoritmo, decidi por 5 iterações, printando três colunas com os resultados a cada iteração: a estimativa inicial, a nova estimativa e, por fim, a diferença entre as duas. 
 
@@ -195,9 +197,9 @@ print(f'\n O quanto erramos: {abs(np.sqrt(5) - newton(x**2, 5, 1))}')
      O quanto erramos: 1.8829382497642655e-13
     
 
-E podemos atestar deste modo que o erro de nossa estimativa é desprezível.
+Podemos ver que o erro na estimação foi desprezível.
 
-A vantagem de usar o SymPy é que agora podemos estimar a raiz de qualquer tipo de função. Por exemplo.
+A vantagem de usar o SymPy é que agora podemos estimar a raiz de qualquer tipo de função. Por exemplo, a raiz cúbica de 5, ou algo mais complicado:
 
 
 ```python
@@ -241,9 +243,7 @@ $\displaystyle x^4 + x^3 - x^2 - 5$
     1.4259134245660217
     
 
-Se plotarmos o gráfico dessa função, podemos ver que esse é um valor razoável. Uma raiz parece estar 1 e 2, e foi a que achamos. E uma outra muito próxima de 2. Confira abaixo.
-
-Vamos tentar achar essa outra raiz com nossa função. Para isso, basta mudarmos nossa estimativa inicial de forma a nos aproximar daquela outra raiz.
+Se plotarmos o gráfico dessa função, podemos ver que esse é um valor razoável. Uma raiz parece estar 1 e 2, e foi a que achamos. E uma outra muito próxima de 2.
 
 
 ```python
@@ -258,11 +258,13 @@ plt.hlines(0, -5, 5, color='grey')
 plt.xlim(-5, 5)
 plt.ylim(-7.5, 5)
 ```
+
 {: .center}
 
 ![png](../images/output_17_1.png)
 
 
+Vamos tentar achar essa outra raiz com nossa função. Para isso, basta mudarmos nossa estimativa inicial de forma a nos aproximar daquela outra raiz.
 
 ```python
 print(f'\n{newton(x**4 + x**3 - x**2, 5, -1.5)}')
@@ -280,7 +282,7 @@ print(f'\n{newton(x**4 + x**3 - x**2, 5, -1.5)}')
 
 Essa é uma função complicadinha e expõe algumas limitações do método que Newton criou. 
 
-Primeiro, é muito claro que o resultado final a que chegamos depende da estimativa inicial. Logo, se fizermos uma estimativa desarrazoada, é muito provável que não cheguemos a uma solução pertinente.
+Primeiro, é muito claro que o resultado final a que chegaremos depende da estimativa inicial. Logo, se fizermos uma estimativa desarrazoada, é muito provável que não cheguemos a uma solução pertinente.
 
 Além disso, a derivada da função não deve ser muito pequena. No limite, se ela for zero em um dado ponto, teremos uma indefinição, uma divisão por zero. 
 
