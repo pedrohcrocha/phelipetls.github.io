@@ -18,10 +18,7 @@ import numpy as np
 
 sns.set()
 
-
 def f(x): return x**2 - 5
-
-
 xvalues = np.linspace(-5, 5, 500)
 
 plt.plot(xvalues, f(xvalues))
