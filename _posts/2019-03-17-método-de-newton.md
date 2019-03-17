@@ -115,7 +115,8 @@ plt.plot(xvalues, f(xvalues), label=r'$x^2 - 5$')
 plt.plot(xvalues, tangente_um(xvalues), label=r'$2x - 6$')
 plt.plot(xvalues, tangente_dois(xvalues), label=r'$6x - 14$')
 
-plt.hlines(0, -1, 4, 'grey', 'dashed'); plt.vlines(3, -10, 10, 'grey', 'dashed')
+plt.hlines(0, -1, 4, 'grey', 'dashed')
+plt.vlines(3, -10, 10, 'grey', 'dashed')
 
 plt.xlim(-1, 4); plt.ylim(-10, 10)
 plt.legend()
