@@ -371,7 +371,7 @@ newton(x**3 - x, 1, 0.6)
 
 
 
-Como esperado, a tangente ali é muito inclinada, e jogou a estimativa para muito longe, tanto que em 5 tentativas não conseguimos uma estimativa muito boa. Veja o gráfico.
+Como esperado, a tangente ali é pouquíssimo inclinada, e jogou a estimativa para muito longe, tanto que em 5 tentativas não conseguimos uma estimativa muito boa. Veja o gráfico.
 
 
 ```python
