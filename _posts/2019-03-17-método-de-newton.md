@@ -296,7 +296,7 @@ newton(x**4 + x**3 - x**2, 5, -1.5)
 
 ###### Limitações do método
 
-Essa é uma função complicadinha e expõe algumas limitações do método que Newton criou. Por exemplo, imagine que usemos como estivamativa um valor próximo de um mínimo, digamos que 0.5.
+Essa é uma função complicadinha e expõe algumas limitações do método que Newton criou. Por exemplo, imagine que usemos como estimativa um valor próximo de um mínimo, digamos que 0.5.
 
 ```python
 newton(x**4 + x**3 - x**2, 5, 0.5)
