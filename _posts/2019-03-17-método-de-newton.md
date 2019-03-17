@@ -42,6 +42,7 @@ E, com ela em mãos, queremos achar onde _essa reta_ intercepta o eixo x, e este
 
 Até então, o método não parece tão impressionante. Mas e se fizermos isso de novo, usando como estimativa a raiz dessa reta? Acontece que se repetirmos esse processo algumas vezes mais podemos chegar numa estimativa _muito_ próxima da solução.
 
+
 ##### Aproximação Linear
 
 Esse uso da reta tangente é o que se conhece por aproximação linear. Por exemplo, retomando a função quadrática. A derivada dela é obtida pela regra da potência, $\frac{d(x^2)}{dx} = 2x$. Já a equação da tangente é obtida simplesmente da equação de uma reta:
@@ -105,7 +106,8 @@ O que já é uma ótima aproximação de $\sqrt{5}$.
 
 Seria interessante escrevermos uma função para fazer esses cálculos, e ela inevitavelmente teria lidar com cálculo diferencial. Para isso, existe uma biblioteca que pode nos ajudar.
 
-##### Introdução ao SymPy
+
+##### Introduzindo SymPy
 
 Essa biblioteca fornece suporte para trabalhar com álgebra simbólica. Nela contamos com funções para calcular limites, derivadas, integrais, expandir polinômicos, simplificar expressões etc.
 
