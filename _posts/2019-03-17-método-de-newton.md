@@ -219,7 +219,7 @@ print(f'\nO quanto erramos: {abs(5**(1/3) - newton(x**3, 5, 2))}')
 Uma das raízes para função $ x^4 + x^3 - x^2 - 5$ deve ser:
 
 ```python
-print(f'\n{newton(x**4 + x**3 - x**2 , 5, 1)}')
+newton(x**4 + x**3 - x**2 , 5, 1)
 ``` 
 
 
