@@ -102,9 +102,26 @@ E a ideia é usarmos o 3 como um novo $x_0$, e com ele calcularmos uma nova esti
 
 $$ x = 3 - \frac{3^2 - 5}{2\cdot3} = 3 - \frac{4}{6} = 1 - (2/3) = 3 - 1/3 \approx 2.333$$
 
-O que já é uma ótima aproximação de $\sqrt{5}$.
+O que já é uma ótima aproximação de $\sqrt{5}$. Abaixo um gráfico do que mais ou menos aconteceu.
 
-![Newton](../images/NewtonIteration_Ani.gif)
+```python
+def f(x): return x**2 - 5
+def tangente_um(x): return 2 * x - 6
+def tangente_dois(x): return 6 * x - 14
+
+xvalues = np.linspace(-5, 5, 1000)
+
+plt.plot(xvalues, f(xvalues), label=r'$x^2 - 5$')
+plt.plot(xvalues, tangente_um(xvalues), label=r'$2x - 6$')
+plt.plot(xvalues, tangente_dois(xvalues), label=r'$6x - 14$')
+
+plt.hlines(0, -1, 4, 'grey', 'dashed'); plt.vlines(3, -10, 10, 'grey', 'dashed')
+
+plt.xlim(-1, 4); plt.ylim(-10, 10)
+plt.legend()
+```
+
+![Image](../images/newton_visualization.png)
 
 Seria interessante escrevermos uma função para fazer esses cálculos, e ela inevitavelmente teria lidar com cálculo diferencial. Para isso, existe uma biblioteca que pode nos ajudar.
 
