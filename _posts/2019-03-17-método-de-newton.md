@@ -51,7 +51,7 @@ $$ \Delta y = f'(x)\Delta x \\
    (y - y_0) = f'(x_0)(x - x_0) \\
    y = y_0 + m(x - x_0)$$
    
-No nosso caso, queremos achar a reta tangente quando $x_0 = 1$, sendo $f(x_0) = x^2 - 5 = 1 - 5 = -4$. Logo, a reta que tangencia o ponto $(1, -4)$:
+No nosso caso, queremos achar a reta tangente quando $x = 1$, sendo $f(x) = x^2 - 5 = 1 - 5 = -4$. Logo, a reta que tangencia o ponto $(1, -4)$:
 
 $$ y = y_0 + 2x(x - x_0) \\
    y = -4 + 2\cdot 1(x - 1) \\
