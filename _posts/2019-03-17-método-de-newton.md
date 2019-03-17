@@ -270,7 +270,7 @@ newton(x**4 + x**3 - x**2, 5, -1.5)
     2.0588469658492823
 
 
-#Limitações do método
+###### Limitações do método
 
 Essa é uma função complicadinha e expõe algumas limitações do método que Newton criou. Por exemplo, imagine que usemos como estivamativa um valor próximo de um mínimo, digamos que 0.5.
 
