@@ -104,6 +104,8 @@ $$ x = 3 - \frac{3^2 - 5}{2\cdot3} = 3 - \frac{4}{6} = 1 - (2/3) = 3 - 1/3 \appr
 
 O que já é uma ótima aproximação de $\sqrt{5}$.
 
+![Newton](../images/NewtonIteration_Ani.gif)
+
 Seria interessante escrevermos uma função para fazer esses cálculos, e ela inevitavelmente teria lidar com cálculo diferencial. Para isso, existe uma biblioteca que pode nos ajudar.
 
 
