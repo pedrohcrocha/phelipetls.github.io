@@ -133,13 +133,13 @@ Podemos também calcular limites, por exemplo $\lim_{x \to \infty} \frac{1}{x} =
 
 
 ```python
-limit(log(x), x, 0)
+limit(1/x, x, 0)
 ```
 
 
 
 
-    -oo
+    oo
 
 
 
