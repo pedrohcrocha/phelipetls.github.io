@@ -77,7 +77,7 @@ plt.legend()
 
 {: .center}
 
-![png](output_3_1.png)
+![png](../images/output_3_1.png)
 
 
 Nesse zoom, também podemos ver que a reta tangente ao ponto $(1, -4)$ cruza o eixo $x$ um pouco mais adiante de $2.23$. Mais especificamente, quando $2x - 6 = 0 \Rightarrow 2x = 6 \Rightarrow x = 3$.
@@ -260,7 +260,7 @@ plt.ylim(-7.5, 5)
 ```
 {: .center}
 
-![png](output_17_1.png)
+![png](../images/output_17_1.png)
 
 
 
@@ -298,7 +298,7 @@ plt.ylim(-.5, .5)
 
 {: .center}
 
-![png](output_20_1.png)
+![png](../images/output_20_1.png)
 
 
 Pelo gráfico, salta à vista que as três raízes são 0, 1 e -1. Ok, mas imagine que queiramos estimar a raiz não-nula positiva com este método.
@@ -362,7 +362,7 @@ plt.legend()
 ```
 {: .center}
 
-![png](output_26_1.png)
+![png](../images/output_26_1.png)
 
 
 ##### Conclusões
