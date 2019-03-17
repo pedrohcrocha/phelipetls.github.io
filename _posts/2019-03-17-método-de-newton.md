@@ -313,7 +313,7 @@ newton(x**4 + x**3 - x**2, 5, 0.5)
     6.434733086164693
 
 
-O resultado foi bem catastrófico. É claro, não poderíamos esperar que ele fosse infalível. Vejamos como ele pode falhar.
+O resultado foi bem catastrófico. É claro, não poderíamos esperar que ele fosse infalível. Vejamos as razões pelas quais ele pode falhar.
 
 Primeiro, é muito claro que o resultado final a que chegaremos depende da estimativa inicial. Logo, se fizermos uma estimativa desarrazoada, é muito provável que não cheguemos a uma solução pertinente.
 
