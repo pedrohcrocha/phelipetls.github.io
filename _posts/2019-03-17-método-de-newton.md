@@ -29,7 +29,7 @@ plt.plot(xvalues, f(xvalues))
 
 {: .center}
 
-![png](output_1_1.png)
+![png](../images/output_1_1.png)
 
 
 Podemos verificar pelo gráfico que a função intercepta o eixo x quando $x$ é um pouquinho acima de 2, quer dizer, quando $x = \sqrt{5} \approx 2.23$. 
