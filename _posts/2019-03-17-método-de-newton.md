@@ -51,7 +51,7 @@ $$ \Delta y = f'(x)\Delta x \\
    (y - y_0) = f'(x_0)(x - x_0) \\
    y = y_0 + m(x - x_0)$$
    
-No nosso caso, queremos achar a reta tangente quando $x = 1$, sendo $f(x) = x^2 - 5 = 1 - 5 = -4$. Logo, a reta que tangencia o ponto $(1, -4)$:
+No nosso caso, queremos achar a reta tangente quando $x_0 = 1$, sendo $f(x_0) = x^2 - 5 = 1 - 5 = -4$. Logo, a reta que tangencia o ponto $(1, -4)$ é:
 
 $$ y = y_0 + 2x(x - x_0) \\
    y = -4 + 2\cdot 1(x - 1) \\
@@ -59,9 +59,9 @@ $$ y = y_0 + 2x(x - x_0) \\
    y = 2x - 6
 $$
 
-Mas, é importante notar que essa função é a _equação da reta tangente a um ponto (x, y) da função f(x)_. Então, o que isso tudo realmente quer dizer é que, para um dado número $a$, o valor de $f(a) \approx y(a)$, quando $a \approx x$.
+Mas, é crucial perceber que essa é a _equação da reta tangente ao ponto $(x_0, y_0)$ da função f(x)_. Então, o que isso tudo realmente quer dizer é que, para um dado número $a$, o valor de $f(a) \approx y(a)$, quando $a \approx x_0$.
 
-$$f(x) \approx y_0 + m(x - x_0)$$
+$$f(a) \approx y_0 + m(a - x_0)$$
 
 No gráfico abaixo isso pode ser melhor visualizado. Perceba que para valores próximos de 1, a reta tangente está bem próxima da parábola, mas vai ficando cada vez mais distante quando x se afasta de 1. E é esse o sentido de uma aproximação linear.
 
@@ -102,7 +102,7 @@ E a ideia é usarmos o 3 como um novo $x_0$, e com ele calcularmos uma nova esti
 
 $$ x = 3 - \frac{3^2 - 5}{2\cdot3} = 3 - \frac{4}{6} = 1 - (2/3) = 3 - 1/3 \approx 2.333$$
 
-O que já é uma ótima aproximação de $\sqrt{5}$. Abaixo um gráfico do que mais ou menos aconteceu. A função laranja é a tangente ao ponto $(1, -4)$, e a verde ao ponto $(3,  4). Veja como a raiz da tangente a este último ponto é próxima da raiz da parábola.
+O que já é uma ótima aproximação de $\sqrt{5}$. Abaixo um gráfico do que mais ou menos aconteceu. A função laranja é a tangente ao ponto $(1, -4)$, e a verde ao ponto $(3,  4)$. Veja como o intercepto-x da tangente a este último ponto é próximo da raiz da parábola.
 
 ```python
 def f(x): return x**2 - 5
