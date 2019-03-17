@@ -92,7 +92,7 @@ $$ y - y_0 = m(x - x_0) \\
    -\frac{y_0}{m} = x - x_0 \Rightarrow
    x = x_0 - \frac{y_0}{m} \\
    \text{ o que também pode ser escrito: } \\
-   x = x_0 - \frac{f(x_0)}{f'(x_0)} $$
+   x = x_0 - \frac{f(x_0)}{f'(x_0)} \Rightarrow x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$$ 
 
 Plugando os valores de nossa estimativa inicial, obtemos:
 
@@ -100,7 +100,7 @@ $$ x = 1 - \frac{1^2 - 5}{2\cdot1} = 1 - \frac{-4}{2} = 1 - (-2) = 3$$
 
 E a ideia é usarmos o 3 como um novo $x_0$, e com ele calcularmos uma nova estimativa para a raiz com a reta que tangencia $(3, 4)$.
 
-$$ x = 3 - \frac{3^2 - 5}{2\cdot3} = 3 - \frac{4}{6} = 3 - \frac{3}{2} \approx 2.333$$
+$$ x = 3 - \frac{3^2 - 5}{2\cdot3} = 3 - \frac{4}{6} = 3 - \frac{2}{3} \approx 2.333$$
 
 O que já é uma ótima aproximação de $\sqrt{5}$. Abaixo um gráfico do que mais ou menos aconteceu. A função laranja é a tangente ao ponto $(1, -4)$, e a verde ao ponto $(3,  4)$. Veja como o intercepto-x da tangente a este último ponto é próximo da raiz da parábola.
 
