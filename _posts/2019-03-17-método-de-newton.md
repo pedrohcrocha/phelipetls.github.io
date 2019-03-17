@@ -360,6 +360,8 @@ plt.hlines(0, -5, 5, color = 'grey')
 plt.xlim(-2, 2); plt.ylim(-.5, .5)
 plt.legend()
 ```
+
+
 {: .center}
 
 ![png](../images/output_26_1.png)
