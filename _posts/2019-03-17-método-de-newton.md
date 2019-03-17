@@ -102,7 +102,7 @@ E a ideia é usarmos o 3 como um novo $x_0$, e com ele calcularmos uma nova esti
 
 $$ x = 3 - \frac{3^2 - 5}{2\cdot3} = 3 - \frac{4}{6} = 1 - (2/3) = 3 - 1/3 \approx 2.333$$
 
-O que já é uma ótima aproximação de $\sqrt{5}$. Abaixo um gráfico do que mais ou menos aconteceu.
+O que já é uma ótima aproximação de $\sqrt{5}$. Abaixo um gráfico do que mais ou menos aconteceu. A função laranja é a tangente ao ponto $(1, -4)$, e a verde ao ponto $(3,  4). Veja como a raiz da tangente a este último ponto é próxima da raiz da parábola.
 
 ```python
 def f(x): return x**2 - 5
@@ -120,6 +120,8 @@ plt.hlines(0, -1, 4, 'grey', 'dashed'); plt.vlines(3, -10, 10, 'grey', 'dashed')
 plt.xlim(-1, 4); plt.ylim(-10, 10)
 plt.legend()
 ```
+
+{: .center}
 
 ![Image](../images/newton_visualization.png)
 
