@@ -257,7 +257,7 @@ newton(x**4 + x**3 - x**2 , 5, 1)
     1.4259134245660217
     
 
-Se plotarmos seu gráfico, veremos que esse é um valor razoável. Uma raiz parece estar 1 e 2, e foi a que achamos. E uma outra está muito próxima de 2.
+Se plotarmos seu gráfico, veremos que esse é um valor razoável. Uma raiz parece estar entre 1 e 2, e foi a que achamos. E uma outra está muito próxima de 2.
 
 
 ```python
