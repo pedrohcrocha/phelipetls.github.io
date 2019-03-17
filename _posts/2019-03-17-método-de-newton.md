@@ -316,7 +316,7 @@ Primeiro, é muito claro que o resultado final a que chegaremos depende da estim
 
 Além disso, a derivada da função naquele ponto não deve ser muito pequena. No limite, se ela for zero, teremos uma indefinição, uma divisão por zero. 
 
-E se ela for muito pequena, a reta tangente será muito inclinada e jogará a estimativa para muito longe da raiz. E foi isso o que aconteceu ali em cima. Por exemplo, consideremos a função $x^3 - x$.
+E se ela for muito pequena, a reta tangente será muito pouco inclinada e jogará a estimativa para muito longe da raiz. E foi isso o que aconteceu ali em cima. Por exemplo, consideremos a função $x^3 - x$.
 
 
 ```python
