@@ -1,6 +1,8 @@
 
 ###### Introdução
 
+![Img](../images/Geometric-explanation-of-Newtons-method.png)
+
 O Método de Newton é um conhecido algoritmo para chegar a soluções númericas de uma equação, normalmente uma para a qual a solução não é tão trivial. Por exemplo, imagine que queiramos encontrar encontrar a raiz da função quadrática $x = \sqrt{5} \Rightarrow x^2 = 5 \Rightarrow x^2 - 5 = 0$. Como poderíamos fazer isso?
 
 Newton criou um método (verdadeiramente um algoritmo) extraordinariamente eficiente para chegar à solução, em que se faz uso de seus estudos em cálculo diferencial.
