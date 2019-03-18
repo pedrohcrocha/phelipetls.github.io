@@ -38,7 +38,7 @@ Com esse valor, a ideia é obter a reta tangente àquele ponto, o que é algo mu
 
 E, com ela em mãos, queremos achar onde _essa reta_ intercepta o eixo x, e este deve ser um ponto mais próximo da raiz, mas não exatamente a raiz. Isto porque estamos calculando a raiz de uma reta pra nos aproximarmos da raiz de uma parábola, que não é linear, é claro.
 
-![Img](../images/Geometric-explanation-of-Newtons-method.png)
+![Img](../images/newtonraphson1.png)
 
 Até então, o método não parece tão impressionante. Mas e se fizermos isso de novo, usando como estimativa a raiz dessa reta? Acontece que se repetirmos esse processo algumas vezes mais podemos chegar numa estimativa _muito_ próxima da solução.
 
