@@ -88,7 +88,7 @@ $$ y - y_0 = m(x - x_0) \\
    \text{ dividindo tudo por m e sumindo com o y: } \\
    -\frac{y_0}{m} = x - x_0 \Rightarrow
    x = x_0 - \frac{y_0}{m} \\
-   \text{ o que também pode ser escrito: } \\
+   \text{ o que também pode ser escrito como: } \\
    x = x_0 - \frac{f(x_0)}{f'(x_0)} \Rightarrow x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$$ 
 
 Plugando os valores de nossa estimativa inicial, obtemos:
@@ -275,7 +275,7 @@ plt.ylim(-7.5, 5)
 ![png](../images/output_17_1.png)
 
 
-Vamos tentar achar essa outra raiz com nossa função. Para isso, basta mudarmos nossa estimativa inicial de forma a nos aproximar daquela outra raiz.
+Vamos tentar achar essa outra raiz com nossa função. Para isso, basta mudarmos nossa estimativa inicial de forma a nos aproximarmos daquela outra raiz.
 
 ```python
 newton(x**4 + x**3 - x**2, 5, -1.5)
