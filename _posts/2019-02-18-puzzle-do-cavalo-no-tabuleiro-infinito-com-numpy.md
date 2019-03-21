@@ -1,6 +1,6 @@
 ---
 layout: post
-categories: [python, estatistica]
+categories: [Python, Estatística]
 ---
 ##### Introdução
 
