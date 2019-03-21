@@ -4,7 +4,6 @@ permalink: /categories/
 title: Categorias
 ---
 
-{% comment %}
 <div id="archives">
 {% for category in site.categories %}
   <div class="archive-group">
@@ -22,9 +21,8 @@ title: Categorias
   </div>
 {% endfor %}
 </div>
-{% endcomment %}
 
-
+{% comment %}
 {% for post in site.categories.Python %}
  <li><span>{{ post.date | date_to_string }}</span> &nbsp; <a href="{{ post.url }}">{{ post.title }}</a></li>
 {% endfor %}
@@ -36,3 +34,4 @@ title: Categorias
 {% for post in site.categories.Estatística %}
  <li><span>{{ post.date | date_to_string }}</span> &nbsp; <a href="{{ post.url }}">{{ post.title }}</a></li>
 {% endfor %}
+{% endcomment %}
