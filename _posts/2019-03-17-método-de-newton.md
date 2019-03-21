@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Método de Newton
-tags: [Matemática, Python, Matplotlib, SymPy]
+tags: python matematica sympy matplotlib
 ---
 
 
