@@ -1,7 +1,6 @@
 ---
 layout: post
-category: Python
-tags: [python, estatísticas]
+categories: python
 ---
 ##### Introdução
 
