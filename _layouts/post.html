@@ -27,7 +27,9 @@ layout: default
 
 </article>
 
-{% include disqus.html %}
+{% if site.disqus.shortname %}
+  {% include disqus.html %}
+{% endif %}
 
 <div class="page-navigation code">
 	{% if page.next.url %}
