@@ -25,7 +25,8 @@ plugins:
   - jekyll-sitemap
   - jemoji
 
-
+disqus:
+    shortname: phelipetls
 
 defaults:
   -
