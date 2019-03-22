@@ -2,6 +2,7 @@
 layout: post
 title: Método de Newton
 categories: [Python, Matemática]
+comments: true
 ---
 
 
