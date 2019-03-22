@@ -27,6 +27,8 @@ layout: default
 
 </article>
 
+{% include disqus.html %}
+
 <div class="page-navigation code">
 	{% if page.next.url %}
     <a class="next" href="{{ page.next.url | prepend: site.baseurl | prepend: site.url }}" title="NEXT: {{page.next.title}}">&lt;&lt;</a>
