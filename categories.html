@@ -16,7 +16,7 @@ title: Categorias
   <div class="divider"></div>
 
 	
-{% for category in site.categories | sort %}
+{% for category in site.categories | sort: 'size' %}
   <h6>{{ category[0] }}</h6>
   <ul>
     {% for post in category[1] %}
