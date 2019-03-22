@@ -22,7 +22,7 @@ title: Categorias
     <a href="#{{ tag[0] | slugify }}" class="post-tag">{{ tag[0] }}</a>
     {% endfor %}
   </div>
-  <div class="divider></div>
+  <div class="divider"></div>
   <div class="tags-expo-section">
     {% for tag in site.categories %}
     <h5 id="{{ tag[0] | slugify }}">{{ tag[0] }}</h2>
