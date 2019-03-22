@@ -2,6 +2,7 @@
 layout: post
 title: Três Algoritmos Para A Sequência De Fibonacci
 categories: [Python, Matemática]
+comments: true
 ---
 
 ![FibSeq](../images/kisspng-fibonacci-number-golden-spiral-golden-ratio-mathem-spiral-5b4a12ee4a0493.6897256215315811663032.png)
