@@ -31,11 +31,13 @@ title: Categorias
     {% for tag in site.categories %}
     <h6 id="{{ tag[0] | slugify }}">{{ tag[0] }}</h6>
     <ul class="tags-expo-posts">
-      {% for post in tag[1] %}
-        <a class="post-title" href="{{ site.baseurl }}{{ post.url }}">
+      <li data-sort="{{ site.posts.size | minus: tag[1].size | prepend: '0000' | slice: -4, 4 }}">
+        {% for post in tag[1] %}
+          <a class="post-title" href="{{ site.baseurl }}{{ post.url }}">
+      </li>
       <li>
         {{ post.title }}
-      <small class="post-date">{{, post.date | date_to_string }}</small>
+      <small class="post-date">{{post.date | date_to_string }}</small>
       </li>
       </a>
       {% endfor %}
