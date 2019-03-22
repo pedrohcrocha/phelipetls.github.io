@@ -1,6 +1,7 @@
 ---
 layout: post
 categories: [Python, Estatística]
+comments: true
 ---
 ##### Introdução
 
