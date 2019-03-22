@@ -20,7 +20,7 @@ title: Categorias
   <div class="center">
     <div class="tags-expo-list">
       {% for tag in site.categories %}
-      <a href="#{{ tag[0] | slugify }}" class="post-tag">{{ tag[0] }}</a>&nbsp;({{ tag[1].size }}){% unless forloop.last %},{% endunless %}
+      <a href="#{{ tag[0] | slugify }}" class="post-tag">{{ tag[0] }}</a>&nbsp;({{ tag[1].size }}){% unless forloop.last %}, {% endunless %}
       {% endfor %}
     </div>
   </div>
