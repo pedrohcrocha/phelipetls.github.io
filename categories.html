@@ -20,7 +20,7 @@ title: Categorias
   <div class="center">
     <div class="tags-expo-list">
       {% for tag in site.categories %}
-      <a href="#{{ tag[0] | slugify: 'pretty' }}" class="post-tag">{{ tag[0] }}<span>({{ site.categories[tag[0]].size }})</span></a>
+      <a href="#{{ tag[0] | slugify }}" class="post-tag">{{ tag[0] }}<span>({{ site.categories[tag[0]].size }})</span></a>
       {% endfor %}
     </div>
   </div>
@@ -29,7 +29,7 @@ title: Categorias
   
   <div class="tags-expo-section">
     {% for tag in site.categories %}
-    <h6 id="{{ tag[0] | slugify: 'pretty' }}">{{ tag[0] }}</h6>
+    <h6 id="{{ tag[0] | slugify }}">{{ tag[0] }}</h6>
     <ul class="tags-expo-posts">
       {% for post in tag[1] %}
         <a class="post-title" href="{{ site.baseurl }}{{ post.url }}">
