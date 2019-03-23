@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Três Algoritmos Para A Sequência De Fibonacci
-categories: [Python, Matemática]
+categories: [Python, Álgebra Linear]
 comments: true
 ---
 
