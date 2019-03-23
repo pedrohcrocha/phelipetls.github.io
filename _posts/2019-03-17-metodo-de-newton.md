@@ -68,7 +68,7 @@ $$ y = y_0 + 2x(x - x_0) \\
    y = 2x - 6
 $$
 
-Mas, é crucial perceber que essa é a _equação da reta tangente ao ponto $(x_0, y_0)$ da função f(x)_. Então, o que isso tudo realmente quer dizer é que, para um dado número $a$, o valor de $f(a) \approx y(a)$, quando $a \approx x_0$.
+Mas, é crucial perceber que essa é a _equação da reta tangente ao ponto $(x_0, y_0)$ da função f(x)_. Então, o que realmente podemos alegar é que, para um dado número $a$, o valor de $f(a) \approx y(a)$, quando $a \approx x_0$: a reta tangente a um dado ponto de uma função é muito próxima da própria função para valores não muito distantes do ponto.
 
 $$f(a) \approx y_0 + m(a - x_0)$$
 
