@@ -37,9 +37,9 @@ plt.plot(xvalues, f(xvalues))
 ![png](../images/output_1_1.png)
 
 
-Podemos verificar que ela intercepta o eixo x quando $x$ é um pouquinho acima de 2, quer dizer, quando $x = \sqrt{5} \approx 2.23$. 
+Podemos verificar que ela intercepta o eixo x quando $x$ é um pouquinho acima de 2, quer dizer, quando $x = \sqrt{5} \approx 2.23$.
 
-Ok, mas como chegamos até ali com cálculo diferencial? O raciocínio é como segue: vamos fazer uma estimativa inicial, um valor que achamos que seja próximo da solução. Por exemplo, 1. 
+Ok, mas como chegamos até ali com cálculo diferencial? O raciocínio é como segue: vamos fazer uma estimativa inicial, um valor que achamos que seja próximo da solução. Por exemplo, 1.
 
 Com esse valor, a ideia é obter a reta tangente àquele ponto, o que é algo muito mais fácil de lidar. E, para isso, é claro que precisamos calcular $f^{'}(1)$, a inclinação dessa reta naquele ponto.
 
@@ -59,7 +59,7 @@ Esse uso da reta tangente é o que se conhece por aproximação linear. Por exem
 $$ \Delta y = f'(x)\Delta x \\
    (y - y_0) = f'(x_0)(x - x_0) \\
    y = y_0 + m(x - x_0)$$
-   
+
 No nosso caso, queremos achar a reta tangente quando $x_0 = 1$, sendo $f(x_0) = x^2 - 5 = 1 - 5 = -4$. Logo, a reta que tangencia o ponto $(1, -4)$ é:
 
 $$ y = y_0 + 2x(x - x_0) \\
@@ -92,7 +92,7 @@ plt.legend()
 
 Nesse zoom, também podemos ver que a reta tangente ao ponto $(1, -4)$ cruza o eixo $x$ um pouco mais adiante de $2.23$. Mais especificamente, quando $2x - 6 = 0 \Rightarrow 2x = 6 \Rightarrow x = 3$.
 
-O que é um pouco mais próximo da raiz do que a estimativa inicial 1. E é exatamente nisso que consiste o Método de Newton, em se aproximar cada vez mais da raiz de $f(x)$ usando a reta que tangencia um dado ponto desta função. 
+O que é um pouco mais próximo da raiz do que a estimativa inicial 1. E é exatamente nisso que consiste o Método de Newton, em se aproximar cada vez mais da raiz de $f(x)$ usando a reta que tangencia um dado ponto desta função.
 
 Assim, nosso objetivo fica melhor delineado dessa forma: queremos sempre o valor de $x$ da reta tangente a um ponto $(x, f(x))$ que faz com que $y = 0$:
 
@@ -101,7 +101,7 @@ $$ y - y_0 = m(x - x_0) \\
    -\frac{y_0}{m} = x - x_0 \Rightarrow
    x = x_0 - \frac{y_0}{m} \\
    \text{ o que também pode ser escrito como: } \\
-   x = x_0 - \frac{f(x_0)}{f'(x_0)} \Rightarrow x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$$ 
+   x = x_0 - \frac{f(x_0)}{f'(x_0)} \Rightarrow x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$$
 
 Plugando os valores de nossa estimativa inicial, obtemos:
 
@@ -196,9 +196,9 @@ Antes de apresentar a função em si, melhor explicar como eu a pensei.
 
 Primeiramente, ela tomará três argumentos: a função, o valor para o qual queremos uma solução, e a estimativa inicial. Por exemplo, no nosso caso, ela tomaria os argumentos $x^2$, $5$ e $1$.
 
-Em seguida, construirei simbolicamente, com estes argumentos, nossa $f(x)$ e sua derivada, $f'(x)$. E com isso temos tudo que precisamos para executarmos o método. 
+Em seguida, construirei simbolicamente, com estes argumentos, nossa $f(x)$ e sua derivada, $f'(x)$. E com isso temos tudo que precisamos para executarmos o método.
 
-No algoritmo, decidi por 5 iterações, printando três colunas com os resultados a cada iteração: a estimativa inicial, a nova estimativa e, por fim, a diferença entre as duas, a fim de verificar como a cada iteração o valor de x se aproxima mais do da raiz. 
+No algoritmo, decidi por 5 iterações, printando três colunas com os resultados a cada iteração: a estimativa inicial, a nova estimativa e, por fim, a diferença entre as duas, a fim de verificar como a cada iteração o valor de x se aproxima mais do da raiz.
 
 
 ```python
@@ -209,12 +209,12 @@ def newton(funcao, numero, estimativa):
     df = lambdify(x, diff(funcao - numero)) # 2x
 
     print('est.    | nova est. | diferença')
-    
+
     for _ in range(5):
         nova_est = estimativa - f(estimativa) / df(estimativa)
         print(f'{estimativa:.5f} | {nova_est:^ 9.5f} | {abs(nova_est - estimativa):.20f}')
         estimativa = nova_est
-        
+
     return estimativa
 
 print(f'\nO quanto erramos: {abs(np.sqrt(5) - newton(x**2, 5, 1))}')
@@ -226,9 +226,9 @@ print(f'\nO quanto erramos: {abs(np.sqrt(5) - newton(x**2, 5, 1))}')
     2.33333 |  2.23810  | 0.09523809523809534383
     2.23810 |  2.23607  | 0.00202634245187471862
     2.23607 |  2.23607  | 0.00000091814338532004
-    
+
     O quanto erramos: 1.8829382497642655e-13
-    
+
 
 E assim vemos que o erro foi desprezível.
 
@@ -245,15 +245,15 @@ print(f'\nO quanto erramos: {abs(5**(1/3) - newton(x**3, 5, 2))}')
     1.71088 |  1.70998  | 0.00090792482452184409
     1.70998 |  1.70998  | 0.00000048224014181919
     1.70998 |  1.70998  | 0.00000000000013589130
-    
+
     O quanto erramos: 2.220446049250313e-16
-    
+
 
 Uma das raízes para função $ x^4 + x^3 - x^2 - 5$ deve ser:
 
 ```python
 newton(x**4 + x**3 - x**2 , 5, 1)
-``` 
+```
 
 
     est.    | nova est. | diferença
@@ -262,9 +262,9 @@ newton(x**4 + x**3 - x**2 , 5, 1)
     1.52529 |  1.43509  | 0.09020236587892971336
     1.43509 |  1.42600  | 0.00908943849525978287
     1.42600 |  1.42591  | 0.00008681126625442737
-    
+
     1.4259134245660217
-    
+
 
 Se plotarmos seu gráfico, veremos que esse é um valor razoável. Uma raiz parece estar entre 1 e 2, e foi a que achamos. E uma outra está muito próxima de -2.
 
@@ -299,7 +299,7 @@ newton(x**4 + x**3 - x**2, 5, -1.5)
     -2.45626 | -2.16542  | 0.29084549734551234934
     -2.16542 | -2.06890  | 0.09651451804451394167
     -2.06890 | -2.05885  | 0.01005450745933744727
-    
+
     -2.0588469658492823
 
 
@@ -326,7 +326,7 @@ O resultado foi bem catastrófico. É claro, não poderíamos esperar que ele fo
 
 Primeiro, é muito claro que o resultado final a que chegaremos depende da estimativa inicial. Logo, se fizermos uma estimativa desarrazoada, é muito provável que não cheguemos a uma solução pertinente.
 
-Além disso, a derivada da função naquele ponto não deve ser muito pequena. No limite, se ela for zero, teremos uma indefinição, uma divisão por zero. 
+Além disso, a derivada da função naquele ponto não deve ser muito pequena. No limite, se ela for zero, teremos uma indefinição, uma divisão por zero.
 
 E se ela for muito pequena, a reta tangente será muito pouco inclinada e jogará a estimativa para muito longe da raiz. E foi isso o que aconteceu ali em cima. Por exemplo, consideremos a função $x^3 - x$.
 
@@ -360,7 +360,7 @@ newton(x**3 - x, 1, 0.5)
     -3.36486 | -2.28096  | 1.08390981119991192116
     -2.28096 | -1.55628  | 0.72467848569769000022
     -1.55628 | -1.04351  | 0.51277134078822550478
-    
+
     -1.0435052271790375
 
 
@@ -378,7 +378,7 @@ newton(x**3 - x, 1, 0.6)
     11.94680 |  7.98552  | 3.96128197667255399494
     7.98552 |  5.35691  | 2.62861103714074939575
     5.35691 |  3.62500  | 1.73191328184936210732
-    
+
     3.624996032946096
 
 

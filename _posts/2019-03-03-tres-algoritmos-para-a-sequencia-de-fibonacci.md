@@ -16,7 +16,7 @@ O primeiro eu vi pela primeira vez escrito em C++ num curso de informática que 
 
 ##### A maneira comum
 
-Apenas para recordar o que é a sequência de fibonacci: dados os dois primeiros números da sequência (comumente 0 e 1), o próximo número é a soma dos dois que o precedem. 
+Apenas para recordar o que é a sequência de fibonacci: dados os dois primeiros números da sequência (comumente 0 e 1), o próximo número é a soma dos dois que o precedem.
 
 $$F_0 = 0, F_1 = 1$$
 
@@ -28,11 +28,11 @@ Com isso em mente, podemos escrever o algoritmo que muitos já devem conhecer.
 ```python
 def std_fib(n):
     a, b = 0, 1 # tuple assignment
-    
+
     for _ in range(n):
         fib = a + b
         a, b = b, fib
-        
+
     return fib
 
 [std_fib(i) for i in range(1, 13)]
@@ -45,7 +45,7 @@ def std_fib(n):
 
 
 
-Acredito que não muito possa ser dito sobre este algoritmo, mas é interessante tentar escrevê-lo de um jeito mais _pythonic_. 
+Acredito que não muito possa ser dito sobre este algoritmo, mas é interessante tentar escrevê-lo de um jeito mais _pythonic_.
 
 Por exemplo, legal pontuar como atribuí os valores às variáveis. O que tá rolando ali é chamado de tuple assignment. No Python, você pode atribuir o conteúdo de uma lista, tuple etc. a variáveis numa única linha. Em outra linguagem talvez precisaríamos de variáveis temporárias para isso.
 
@@ -59,7 +59,7 @@ Para comparação, vamos testar sua performance em termos de eficiência.
 ```
 
     2.46 ms ± 96.5 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
-    
+
 
 ##### Por recursão
 
@@ -72,7 +72,7 @@ def rec_fib(n):
         return n
     else:
         return rec_fib(n-1) + rec_fib(n-2)
-    
+
 [rec_fib(i) for i in range(13)]
 ```
 
@@ -83,7 +83,7 @@ def rec_fib(n):
 
 
 
-E funciona da seguinte forma: Primeiro, temos um caso base (_base case_), em que o valor é conhecido. 
+E funciona da seguinte forma: Primeiro, temos um caso base (_base case_), em que o valor é conhecido.
 
 Neste caso, definimos que os números 0 e 1 da sequência de fibonacci são, respectivamente, 0 e 1. Para todos os outros, calculamos de forma recursiva. Por exemplo, $F_3 = F_2 + F_1 = F_1 + F_0 + F_1 = 1 + 0 + 1 = 2$
 
@@ -95,7 +95,7 @@ E é uma boa maneira de introduzir o conceito de recursão na computação. Agor
 ```
 
     4.81 ms ± 625 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
-    
+
 
 Para calcular o vigésimo número ele demorou muito mais do que o algoritmo anterior, que calculou um número muito maior!! Por que será que isso aconteceu? Uma imagem pode ajudar a ilustrar o porquê disso.
 
@@ -112,7 +112,7 @@ Agora, como poderíamos fazer isso? Um jeito bem eficiente é usar um hash table
 def ffib(n, memo = {0: 0, 1: 1}):
     try: # tente retornar um valor no 'memorizador'
         return memo[n]
-    
+
     except: # se não conseguir, calcule o numero
         fib = ffib(n-1) + ffib(n-2)
         memo[n] = fib # guarde-o
@@ -125,7 +125,7 @@ def ffib(n, memo = {0: 0, 1: 1}):
 ```
 
     178 ns ± 0.385 ns per loop (mean ± std. dev. of 7 runs, 10000000 loops each)
-    
+
 
 
 ```python
@@ -133,7 +133,7 @@ def ffib(n, memo = {0: 0, 1: 1}):
 ```
 
     183 ns ± 8.12 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
-    
+
 
 O que é muito mais rápido. É bem impressionante o quanto essa técnica pôde melhorar o código. Uma coisa a se notar, no entanto, é que se você chamar a função com 10000, pelo menos com esse código, dá "stack overflow"... o que eu não esperava e honestamente nem sei por que é assim.
 
@@ -142,14 +142,14 @@ O que é muito mais rápido. É bem impressionante o quanto essa técnica pôde 
 
 <iframe width="560" height="315" src="https://youtube.com/embed/13r9QY6cmjc?t=2074" frameborder="0" allowfullscreen></iframe>
 
-Finalmente, matrizes. Comecemos primeiro com a equação básica, $F_n = F_{n-1} + F_{n-2}$. 
+Finalmente, matrizes. Comecemos primeiro com a equação básica, $F_n = F_{n-1} + F_{n-2}$.
 
 Mas, para termos um sistema de equações lineares, precisamos de mais uma equação pelo menos. A escolha mais simples é: $F_{n-1} = F_{n-1} + 0\cdot F_{n-2}$. O que, em linguagem de matrizes, pode ser escrito como:
 
 {: .center}
 $\begin{bmatrix}F_{n} \\\ F_{n-1}\end{bmatrix} = \begin{bmatrix}1 & 1\\\1 & 0\end{bmatrix} \cdot \begin{bmatrix}F_{n-1} \\\ F_{n-2}\end{bmatrix}$
 
-Uma denominação mais interessante para essa relação é: $ u_{t+1} = Au_t $. O papel que desempenha a matriz A é o de transformar o vetor no "tempo" t para nos dar o vetor no "tempo" seguinte. Estamos lidando aqui com um sistema dinâmico, que evolui no tempo, e queremos saber, por exemplo, qual o $u_{10000}$. Como podemos fazer isso? 
+Uma denominação mais interessante para essa relação é: $ u_{t+1} = Au_t $. O papel que desempenha a matriz A é o de transformar o vetor no "tempo" t para nos dar o vetor no "tempo" seguinte. Estamos lidando aqui com um sistema dinâmico, que evolui no tempo, e queremos saber, por exemplo, qual o $u_{10000}$. Como podemos fazer isso?
 
 Bom, para começar, é conveniente considerarmos um vetor base $u_0$, que no nosso caso pode ser perfeitamente $\begin{bmatrix} 1 \\\ 0 \end{bmatrix}$. Assim, segue diretamente que $u_1 = Au_0$. E, disso, que $u_2 = Au_1 = A \cdot A \cdot u_0 = A^2u_0$. Logo, a fórmula geral é: $$u^k = A^ku_0$$.
 
@@ -163,7 +163,7 @@ Em que $x$ é um autovetor da matriz $A$ e $\lambda$ um autovalor do autovetor. 
 
 Agora, o próximo passo, um grande passo, é notar que nós podemos decompor a matriz $A$ em seus autovetores e autovalores. Isto é possível se os autovetores forem todos linearmente independentes, caso em que uma matriz cheia de autovetores tem uma inversa, e isso será crucial para nós.
 
-Daí que, tratando $S$ como uma matriz de autovetores nas colunas e $\Lambda$ como uma matriz de autovalores na diagonal e zeros em todo o resto, podemos afirmar que $$AS = S\Lambda$$ 
+Daí que, tratando $S$ como uma matriz de autovetores nas colunas e $\Lambda$ como uma matriz de autovalores na diagonal e zeros em todo o resto, podemos afirmar que $$AS = S\Lambda$$
 
 O que não é óbvio, mas que pode ser visto deste modo:
 
@@ -178,13 +178,13 @@ Vamos multiplicar $AS$ pela direita por $S^{-1}$. Isso dá: $A = S\Lambda S^{-1}
 
 $$A^k = S \Lambda^{k}S^{-1}$$
 
-E assim vemos o quanto a decomposição pode simplificar a exponenciação de uma matriz! Agora, retomando lá do início, $u_k = A^ku_0$ pode ser reescrito como $u_k = S \Lambda^{k}S^{-1}u_0$. 
+E assim vemos o quanto a decomposição pode simplificar a exponenciação de uma matriz! Agora, retomando lá do início, $u_k = A^ku_0$ pode ser reescrito como $u_k = S \Lambda^{k}S^{-1}u_0$.
 
-Mas perceba que seria mais interessante termos $u_0$ em uma nova "forma", mais especificamente, como uma combinação linear dos autovetores, $Sc = u_0$, onde c é o vetor de coeficientes que resolve esse sistema de equações, $c = S^{-1}u_0$. E, com isso, nós temos tudo que precisamos porque 
+Mas perceba que seria mais interessante termos $u_0$ em uma nova "forma", mais especificamente, como uma combinação linear dos autovetores, $Sc = u_0$, onde c é o vetor de coeficientes que resolve esse sistema de equações, $c = S^{-1}u_0$. E, com isso, nós temos tudo que precisamos porque
 
 $$ u_k = A^ku_0 = S \Lambda^{k}S^{-1} Sc = S \Lambda^{k}c$$
 
-Isso implica que, no nosso caso, para uma matrix 2x2 (só dois autovetores), $u_k = c_1\lambda_{1}^{k}x_1 + c_2\lambda_{2}^{k}x_2$, onde os $x_i$ são os autovetores, e o restante escalares.  O que indica que a evolução do nosso sistema de equações é totalmente ditada pelos autovalores (não importa quantas vezes a matriz A transforme os autovetores, a direção deles nunca muda). 
+Isso implica que, no nosso caso, para uma matrix 2x2 (só dois autovetores), $u_k = c_1\lambda_{1}^{k}x_1 + c_2\lambda_{2}^{k}x_2$, onde os $x_i$ são os autovetores, e o restante escalares.  O que indica que a evolução do nosso sistema de equações é totalmente ditada pelos autovalores (não importa quantas vezes a matriz A transforme os autovetores, a direção deles nunca muda).
 
 Agora resta calcular tudo com o NumPy.
 
@@ -203,10 +203,10 @@ print(evalues, evectors, sep = '\n\n')
 ```
 
     [ 1.61803399 -0.61803399]
-    
+
     [[ 0.85065081 -0.52573111]
      [ 0.52573111  0.85065081]]
-    
+
 
 Mas, lembrando que queremos os autovalores na matriz diagonal $\Lambda$. Também precisamos calcular o vetor c.
 
@@ -249,7 +249,7 @@ for i in range(1, 15):
     print(FIB(i), end = '\t')
 ```
 
-    [1.]    [2.]    [3.]    [5.]    [8.]    [13.]   [21.]   [34.]   [55.]   [89.]   [144.]  [233.]  [377.]  [610.]  
+    [1.]    [2.]    [3.]    [5.]    [8.]    [13.]   [21.]   [34.]   [55.]   [89.]   [144.]  [233.]  [377.]  [610.]
 
 Tudo o que fiz foi calcular $u_k$ com a fórmula e extrair do vetor resultante a primeira linha ($F_k$).
 
@@ -261,12 +261,12 @@ E quanto à sua eficiência?
 ```
 
     32.8 µs ± 1.46 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
-    
+
 
 Não surpreende ser tão rápido, estamos usando o NumPy afinal.
 
-Mas a beleza dessa abordagem está menos em sua eficiência e mais no que a álgebra linear pode nos revelar. A partir dela pudemos entender muito melhor sobre esses números, o que governa o seu crescimento. Mas, além disso, problemas com sistemas dinâmicos como esse estão em todos os lugares, e lidar com eles requer inevitavelmente conhecer os autovetores/autovalores de uma matriz e como podemos usá-los. 
+Mas a beleza dessa abordagem está menos em sua eficiência e mais no que a álgebra linear pode nos revelar. A partir dela pudemos entender muito melhor sobre esses números, o que governa o seu crescimento. Mas, além disso, problemas com sistemas dinâmicos como esse estão em todos os lugares, e lidar com eles requer inevitavelmente conhecer os autovetores/autovalores de uma matriz e como podemos usá-los.
 
-A sequência de Fibonacci é um bom exemplo para introduzir esses conceitos da álgebra linear, cujo conhecimento é exigido por muitos outros problemas mais práticos/complexos, como Cadeias de Markov, e o leitor pode achar interessante também que o algoritmo do Google tem como fundamento os autovetores de uma matriz de Markov. Enfim, trata-se de um tópico fascinante por si só. 
+A sequência de Fibonacci é um bom exemplo para introduzir esses conceitos da álgebra linear, cujo conhecimento é exigido por muitos outros problemas mais práticos/complexos, como Cadeias de Markov, e o leitor pode achar interessante também que o algoritmo do Google tem como fundamento os autovetores de uma matriz de Markov. Enfim, trata-se de um tópico fascinante por si só.
 
 Antes de terminar o post, fica a minha recomendação para um melhor entendimento de tudo isso: a série de vídeos ["Essence of Linear Algebra"](https://www.youtube.com/watch?v=fNk_zzaMoSs&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab) do 3Blue1Brown e este [site](http://setosa.io/ev/eigenvectors-and-eigenvalues/) que conta com ótimas visualizações do que acabamos de fazer aqui.

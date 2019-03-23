@@ -12,11 +12,11 @@ title: Categorias
       {% endfor %}
     </div>
   </div>
-  
+
   <div class="divider"></div>
 
-	
-{% for category in site.categories | sort: 'size' %}
+
+{% for category in site.categories | sort %}
   <h6>{{ category[0] }}</h6>
   <ul>
     {% for post in category[1] %}
