@@ -94,7 +94,7 @@ Nesse zoom, também podemos ver que a reta tangente ao ponto $(1, -4)$ cruza o e
 
 O que é um pouco mais próximo da raiz do que a estimativa inicial 1. E é exatamente nisso que consiste o Método de Newton, em se aproximar cada vez mais da raiz de $f(x)$ usando a reta que tangencia um dado ponto desta função.
 
-Assim, nosso objetivo fica melhor delineado dessa forma: queremos sempre o valor de $x$ da reta tangente a um ponto $(x, f(x))$ que faz com que $y = 0$:
+Assim, nosso objetivo fica melhor delineado dessa forma: queremos sempre o valor de $x$ da reta tangente a um ponto $(x_0, y_0)$ que faz com que $y = 0$:
 
 $$ y - y_0 = m(x - x_0) \\
    \text{ dividindo tudo por m e sumindo com o y: } \\
