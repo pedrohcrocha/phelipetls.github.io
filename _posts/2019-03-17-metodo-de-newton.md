@@ -27,9 +27,9 @@ import numpy as np
 sns.set()
 
 def f(x): return x**2 - 5
-xvalues = np.linspace(-5, 5, 500)
+X = np.linspace(-5, 5, 500)
 
-plt.plot(xvalues, f(xvalues))
+plt.plot(X, f(X))
 ```
 
 {: .center}
@@ -79,8 +79,8 @@ No gráfico abaixo isso pode ser melhor visualizado. Perceba que para valores pr
 def tang(x): return 2 * x - 6
 
 
-plt.plot(xvalues, f(xvalues), label=r'$x^2 - 5$')
-plt.plot(xvalues, tang(xvalues), label=r'$2x - 6$')
+plt.plot(X, f(X), label=r'$x^2 - 5$')
+plt.plot(X, tang(X), label=r'$2x - 6$')
 plt.xlim(-0.5, 3.5)
 plt.legend()
 ```
@@ -118,11 +118,11 @@ def f(x): return x**2 - 5
 def tangente_um(x): return 2 * x - 6
 def tangente_dois(x): return 6 * x - 14
 
-xvalues = np.linspace(-5, 5, 1000)
+X = np.linspace(-5, 5, 1000)
 
-plt.plot(xvalues, f(xvalues), label=r'$x^2 - 5$')
-plt.plot(xvalues, tangente_um(xvalues), label=r'$2x - 6$')
-plt.plot(xvalues, tangente_dois(xvalues), label=r'$6x - 14$')
+plt.plot(X, f(X), label=r'$x^2 - 5$')
+plt.plot(X, tangente_um(X), label=r'$2x - 6$')
+plt.plot(X, tangente_dois(X), label=r'$6x - 14$')
 
 plt.hlines(0, -1, 4, 'grey', 'dashed')
 plt.vlines(3, -10, 10, 'grey', 'dashed')
@@ -270,13 +270,13 @@ Se plotarmos seu gráfico, veremos que esse é um valor razoável. Uma raiz pare
 
 
 ```python
-xvalues = np.linspace(-5, 5, 1000)
+X = np.linspace(-5, 5, 1000)
 
 
 def g(x): return x**4 + x**3 - x**2 - 5
 
 
-plt.plot(xvalues, g(xvalues))
+plt.plot(X, g(X))
 plt.hlines(0, -5, 5, color='grey')
 plt.xlim(-5, 5)
 plt.ylim(-7.5, 5)
@@ -332,9 +332,9 @@ E se ela for muito pequena, a reta tangente será muito pouco inclinada e jogar�
 
 
 ```python
-xvalues = np.linspace(-2, 2, 1000)
+X = np.linspace(-2, 2, 1000)
 
-plt.plot(xvalues, xvalues**3 - xvalues)
+plt.plot(X, X**3 - X)
 plt.hlines(0, -5, 5, color='grey')
 plt.xlim(-2, 2)
 plt.ylim(-.5, .5)
@@ -387,10 +387,10 @@ Como esperado, a tangente ali é pouquíssimo inclinada, e jogou a estimativa pa
 
 
 ```python
-xvalues = np.linspace(-2, 2, 1000)
+X = np.linspace(-2, 2, 1000)
 
-plt.plot(xvalues, xvalues**3 - xvalues, label = r'$x^3 - x$')
-plt.plot(xvalues, -0.432 + 0.08*xvalues, label = r'$-0.432 + 0.08x$')
+plt.plot(X, X**3 - X, label = r'$x^3 - x$')
+plt.plot(X, -0.432 + 0.08*X, label = r'$-0.432 + 0.08x$')
 
 plt.hlines(0, -5, 5, color = 'grey')
 plt.xlim(-2, 2); plt.ylim(-.5, .5)
