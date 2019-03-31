@@ -65,7 +65,7 @@ a {
     text-align: center;
     border: 0;
     border-radius: 5px;
-    margin: 30px 0;
+    margin: 50px 0;
   }
 }
 mark {
@@ -424,4 +424,9 @@ section {
   max-width: 500px;
   margin: 0 auto;
   font-size: 0.8rem;
+}
+
+.tbl {
+  table-layout: auto;
+  overflow-x: auto;
 }
