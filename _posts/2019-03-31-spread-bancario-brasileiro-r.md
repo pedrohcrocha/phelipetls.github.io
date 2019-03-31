@@ -148,7 +148,7 @@ E que tal contrastar os 15 maiores spreads de países em desenvolvimento versus 
 ``` r
 status_dsnv <- paises %>% select(country_code, developed_developing_countries)
 
-df       <- left_join(dados, status_dsnv, by = "country_code") %>%
+df          <- left_join(dados, status_dsnv, by = "country_code") %>%
             rename(status = developed_developing_countries) %>%
 
 indev       <- df %>%
