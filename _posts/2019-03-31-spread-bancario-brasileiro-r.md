@@ -93,7 +93,7 @@ Aconteceram algumas coisas aqui: primeiro, o `readr::read_csv` criou uma nova co
 
 ##### Visualização
 
-Para visualizar, seria interessante filtrar a base antes. Por exemplo, como se compara o spread do Brasil com o de outros países da América do Sul? Para isso, vou usar [essa](https://raw.githubusercontent.com/lukes/ISO-3166-Countries-with-Regional-Codes/master/all/all.csv) base de dados, em que só me interesso pelo código de cada país, o nome de sua "região" e se ele é desenvolvido ou não.
+Para visualizar, seria interessante filtrar a base antes. Por exemplo, como se compara o spread do Brasil com o de outros países da América do Sul? Para isso, vou usar [essa](https://raw.githubusercontent.com/lukes/ISO-3166-Countries-with-Regional-Codes/master/all/all.csv) base de dados, nela só me interessa o código de cada país, o nome de sua "região" e se ele é desenvolvido ou não.
 
 ``` r
 url    <- "https://pkgstore.datahub.io/core/country-codes/country-codes_csv/data/3b9fd39bdadd7edd7f7dcee708f47e1b/country-codes_csv.csv"
@@ -109,7 +109,7 @@ paises %>% glimpse
     ## $ intermediate_region_name       <chr> NA, NA, NA, NA, NA, NA, "Middle...
     ## $ developed_developing_countries <chr> NA, "Developing", "Developed", ...
 
-Para filtrar os países da América do Sul, vamos pegar o código de cada país, porque pelos nomes há uma divergência entre as duas tabelas. Por conveniência vamos renomear a coluna que interessa.
+Seria interessante comparar o spread brasileiro com o de seus vizinhos continentais. Para filtrar os países da América do Sul, vamos pegar o código de cada país, porque pelos nomes há uma divergência entre as duas tabelas. Por conveniência vamos renomear a coluna de código.
 
 ``` r
 paises <- paises %>% rename(country_code = iso3166_1_alpha_3)
@@ -123,7 +123,7 @@ paises <- paises %>% rename(country_code = iso3166_1_alpha_3)
     ##  [1] "ARG" "BOL" "BVT" "BRA" "CHL" "COL" "ECU" "FLK" "GUF" "GUY" "PRY"
     ## [12] "PER" "SGS" "SUR" "URY" "VEN"
 
-E, com isso, podemos fazer uma visualização dos spreads na américa latina, para os anos de 2015 a 2017. No que podemos ver que o Brasil domina em termos de spread, para nossa infelicidade:
+E, com isso, podemos fazer uma visualização dos spreads na América do Sul, para os anos de 2015 a 2017. No que podemos ver que o Brasil domina em termos de spread, para nossa infelicidade:
 
 ``` r
 theme_set(theme_minimal())
@@ -152,22 +152,22 @@ df       <- left_join(dados, status_dsnv, by = "country_code") %>%
             rename(status = developed_developing_countries) %>%
 
 indev       <- df %>%
-               filter(status == "Developing", ano == 2017) %>%
-               top_n(10, spread) %>%
-               ggplot() +
-               geom_col(aes(fct_reorder(country_name, spread), spread)) +
-               labs(x = "Em desenvolvimento", y = NULL,
-               title = "Países desenvolvidos e subdesenvolvidos com 10 maiores spread em 2017") +
-               coord_flip()
+       filter(status == "Developing", ano == 2017) %>%
+       top_n(10, spread) %>%
+       ggplot() +
+       geom_col(aes(fct_reorder(country_name, spread), spread)) +
+       labs(x = "Em desenvolvimento", y = NULL,
+       title = "Países desenvolvidos e subdesenvolvidos com 10 maiores spread em 2017") +
+       coord_flip()
 
 dev       <- df %>%
-               filter(status == "Developed", ano == 2017) %>%
-               top_n(10, spread) %>%
-               ggplot() +
-               geom_col(aes(fct_reorder(country_name, spread), spread)) +
-               labs(x = "Desenvolvidos", y = NULL) +
-               expand_limits(y = 45) +
-               coord_flip()
+       filter(status == "Developed", ano == 2017) %>%
+       top_n(10, spread) %>%
+       ggplot() +
+       geom_col(aes(fct_reorder(country_name, spread), spread)) +
+       labs(x = "Desenvolvidos", y = NULL) +
+       expand_limits(y = 45) +
+       coord_flip()
 
 library(gridExtra)
 grid.arrange(indev, dev, nrow = 2)
