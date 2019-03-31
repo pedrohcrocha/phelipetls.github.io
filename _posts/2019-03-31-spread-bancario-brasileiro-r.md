@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Spread bancario brasileiro, limpeza e visualização de dados
+title: Spread bancário brasileiro, limpeza e visualização de dados
 categories: [R, Economia]
 comments: true
 ---
