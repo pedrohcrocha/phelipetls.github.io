@@ -156,8 +156,7 @@ indev       <- df %>%
        top_n(10, spread) %>%
        ggplot() +
        geom_col(aes(fct_reorder(country_name, spread), spread)) +
-       labs(x = "Em desenvolvimento", y = NULL,
-       title = "Países desenvolvidos e subdesenvolvidos com 10 maiores spread em 2017") +
+       labs(x = "Em desenvolvimento", y = NULL) +
        coord_flip()
 
 dev       <- df %>%
