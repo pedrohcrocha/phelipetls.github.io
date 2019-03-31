@@ -159,7 +159,7 @@ indev       <- df %>%
        labs(x = "Em desenvolvimento", y = NULL) +
        coord_flip()
 
-dev       <- df %>%
+dev         <- df %>%
        filter(status == "Developed", ano == 2017) %>%
        top_n(10, spread) %>%
        ggplot() +
