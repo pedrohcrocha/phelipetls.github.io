@@ -93,7 +93,22 @@ Aconteceram algumas coisas aqui: primeiro, o `readr::read_csv` criou uma nova co
 
 ##### Visualização
 
-Para visualizar, seria interessante filtrar a base antes. Por exemplo, como se compara o spread do Brasil com o de outros países da América do Sul? Para isso, vou usar [essa](https://raw.githubusercontent.com/lukes/ISO-3166-Countries-with-Regional-Codes/master/all/all.csv) base de dados, nela só me interessa o código de cada país, o nome de sua "região" e se ele é desenvolvido ou não.
+Vamos primeiro ver como evoluiu o spread no Brasil no decorrer do tempo.
+
+``` r
+dados %>%
+  filter(country_name == "Brazil") %>%
+  ggplot(aes(ano, spread)) +
+  geom_line() +
+  labs(x = "\nAno", y = "Spread\n",
+       title = "Spread no Brasil ao ano\n")
+```
+
+![img3](../images/unnamed-chunk-7-1.png)
+
+Veja como o spread vinha caindo sistematicamente, embora ainda fosse muito alto pros padrões internacionais. Com a crise, ele voltou a aumentar, voltando aos níveis do início do século.
+
+Para visualizações entre países, seria interessante filtrar a base antes, por exemplo, como se compara o spread do Brasil com o de outros países da América do Sul? Para isso, vou usar [essa](https://raw.githubusercontent.com/lukes/ISO-3166-Countries-with-Regional-Codes/master/all/all.csv) base de dados, porque nela encontro o código de cada país, o nome de sua "região" e se ele é desenvolvido ou não.
 
 ``` r
 url    <- "https://pkgstore.datahub.io/core/country-codes/country-codes_csv/data/3b9fd39bdadd7edd7f7dcee708f47e1b/country-codes_csv.csv"
@@ -109,7 +124,7 @@ paises %>% glimpse
     ## $ intermediate_region_name       <chr> NA, NA, NA, NA, NA, NA, "Middle...
     ## $ developed_developing_countries <chr> NA, "Developing", "Developed", ...
 
-Seria interessante comparar o spread brasileiro com o de seus vizinhos continentais. Para filtrar os países da América do Sul, vamos pegar o código de cada país, porque pelos nomes há uma divergência entre as duas tabelas. Por conveniência vamos renomear a coluna de código.
+Vamos obter um vetor com o código dos países da América do Sul (para evitar ambiguidades), para assim podermos filtrar a base do spread. Por conveniência eu renomeei a coluna do código.
 
 ``` r
 paises <- paises %>% rename(country_code = iso3166_1_alpha_3)
@@ -143,7 +158,7 @@ dados %>%
 
 ![img1](../images/output_9_0.png)
 
-E que tal contrastar os 15 maiores spreads de países em desenvolvimento versus desenvolvidos? Na outra tabela tem uma coluna que pode nos ajudar com isso. Para isso, fiz um join para depois filtrar e criar os gráficos que eu queria.
+E que tal contrastar os 15 maiores spreads de países em desenvolvimento versus desenvolvidos, pro ano de 2017? Na outra tabela tem uma coluna que pode nos ajudar com isso. Para isso, fiz um join para depois filtrar e criar os gráficos que eu queria.
 
 ``` r
 status_dsnv <- paises %>% select(country_code, developed_developing_countries)
