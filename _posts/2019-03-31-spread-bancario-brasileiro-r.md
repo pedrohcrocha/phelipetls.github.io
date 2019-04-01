@@ -5,19 +5,19 @@ categories: [R, Economia]
 comments: true
 ---
 
-O altíssimo spread bancário [^1] brasileiro é um antigo motivo de preocupação porque trava uma economia mais guiada pelo crédito, dificultando o crescimento etc. Como estou estudando isso para monografia, pensei em visualizar exatamente quão alto ele é. Imaginei que não seria tão difícil com a ajuda do R, e não foi mesmo. Nesse post vou falar sobre a coleta de dados, o tratamento com o tidyverse e a visualização com o ggplot2.
+O altíssimo spread bancário [^1] brasileiro é um motivo de preocupação das autoridades, já que dificulta uma economia mais guiada pelo crédito, dificultando o crescimento etc. Como estou estudando isso para monografia, pensei em visualizar exatamente quão alto ele é. Imaginei que não seria tão difícil com a ajuda do R, e não foi mesmo. Nesse post vou falar sobre a coleta de dados, o tratamento com o tidyverse e a visualização com o ggplot2.
 
-Normalmente, os dados que preciso pego sem sair do R e num formato já muito conveniente, com a ajuda de bibliotecas como rbcb, ipeadatar, sidrar etc. Mas, para isso em específico, eu tive que de fato sair procurando.
+Normalmente, pego séries econômicas sem sair do R e num formato já muito conveniente, com a ajuda de bibliotecas como rbcb, ipeadatar, sidrar etc. Mas, para esse caso em específico, eu tive que de fato sair procurando.
 
-Acabei descobrindo que o World Bank registra a série *Interest rate spread (lending rate minus deposit rate, %)* anual para cada país. Além disso, foi tudo disponilizado para download em um .csv.
+Acabei descobrindo que o World Bank registra a série *Interest rate spread (lending rate minus deposit rate, %)* anualmente para cada país. Além disso, foi tudo disponilizado para download em um .csv.
 
-E, como normalmente acontece com dados "selvagens", ele não estava num formato *tidy*, limpo, que é como gostaríamos que estivesse para facilitar as coisas quando usando R.
+E, como normalmente acontece com dados "selvagens", ele não estava num formato *tidy*, limpo, que é como gostaríamos que estivesse para facilitar as coisas quando usamos R.
 
 Se você não sabe, um *tidy dataset* é aquele em que cada coluna corresponde a uma variável e cada linha a uma observação.
 
 ##### Limpando os dados
 
-Os dados eu baixei [aqui](https://data.worldbank.org/indicator/fr.inr.lndp) e o arquivo eu nomeei "spreads.csv". Vamos olhar como eles estão organizados e por que teremos que limpá-los.
+Os dados eu baixei [daqui](https://data.worldbank.org/indicator/fr.inr.lndp) e o arquivo eu nomeei "spreads.csv". Vamos olhar como eles estão organizados e por que teremos que limpá-los.
 
 ``` r
 library(tidyverse)
