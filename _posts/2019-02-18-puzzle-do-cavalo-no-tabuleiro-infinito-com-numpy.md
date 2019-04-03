@@ -1,5 +1,6 @@
 ---
 layout: post
+title: Puzzle do cavalo no tabuleiro infinito com NumPy
 categories: [Python, Estatística]
 comments: true
 ---
@@ -46,7 +47,7 @@ Para ilustrar essa dificuldade, vamos imaginar que queremos somar duas listas de
 
 E é esse type-checking uma das razões que acabam retardando muito a operação como um todo, principalmente quando isso vai se acumulando na casa dos milhões. Numa linguagem compilada e em que você precisa declarar o tipo de suas variáveis, isso não seria um problema.
 
-O que o Numpy faz é, ao invés de verificar o tipo dos elementos cada vez que a operação for chamada, ele o faz uma vez somente para depois executar a operação a partir dessa informação (para isso serve o atributo 'dtype' do ndarray - de n-dimensional array -, a estrutura de dados básica do Numpy). Além disso, as operações rodam no background em código C. 
+O que o Numpy faz é, ao invés de verificar o tipo dos elementos cada vez que a operação for chamada, ele o faz uma vez somente para depois executar a operação a partir dessa informação (para isso serve o atributo 'dtype' do ndarray - de n-dimensional array -, a estrutura de dados básica do Numpy). Além disso, as operações rodam no background em código C.
 
 O custo disso é que a estrutura básica do Numpy perde a flexibilidade da lista, já que ele comportará um tipo de dado somente. Mas é um custo que estamos dispostos a pagar. Por exemplo:
 
@@ -95,7 +96,7 @@ a[0] = 2+1j
 
     <ipython-input-6-65561a8fbe75> in <module>
     ----> 1 a[0] = 2+1j
-    
+
 
     TypeError: can't convert complex to int
 
@@ -104,20 +105,20 @@ Esse comportamento é muito similar ao vetor do R.
 
 ###### Simulando os movimentos do cavalo
 
-Dito isto, vejamos o que o Numpy pode fazer. Mas antes um esclarecimento - devo todo o thought process no que diz respeito à modelagem ao Robinson, e encorajo a todos lendo que confiram o post dele, se não antes, depois de ler aqui. O único trabalho que tive foi o de escrever o código em Python. 
+Dito isto, vejamos o que o Numpy pode fazer. Mas antes um esclarecimento - devo todo o thought process no que diz respeito à modelagem ao Robinson, e encorajo a todos lendo que confiram o post dele, se não antes, depois de ler aqui. O único trabalho que tive foi o de escrever o código em Python.
 
 A ideia de Robinson para a simulação foi imaginar o tabuleiro como um plano cartesiano, em que o cavalo está no ponto de origem, (0, 0), podendo saltar dali para oito casas possíveis, com igual probabilidade, respeitando sempre as regras do xadrez, como na imagem:
 
 ![Knight](https://raw.githubusercontent.com/phelipetls/phelipetls.github.io/master/images/knight_moves.png)
 
-Daí podemos notar que, se o cavalo pular para uma casa de coordenada x, a coordenada y terá que ser igual a 3 - abs(x). Mas devemos tomar o cuidado para assegurar que a coordenada y também possa ser negativa. 
+Daí podemos notar que, se o cavalo pular para uma casa de coordenada x, a coordenada y terá que ser igual a 3 - abs(x). Mas devemos tomar o cuidado para assegurar que a coordenada y também possa ser negativa.
 
 Com isso em mente, podemos simular um único salto.
 
 
 ```python
 # sorteamos um dos números em parênteses para obter o x
-x = np.random.choice((1, 2, -1, -2)) 
+x = np.random.choice((1, 2, -1, -2))
 
 # e calculamos o y pela relação já descrita
 y = (3 - abs(x)) * np.random.choice((1, -1))
@@ -126,7 +127,7 @@ print(x, y)
 ```
 
     2 1
-    
+
 
 Mas, é claro, não é interessante simular somente um salto. Queremos, na verdade, 20 deles, precisamos de um vetor.
 
@@ -140,7 +141,7 @@ print(move_x, move_y, sep = '\n')
 
     [-2  1 -1  2  1  1  2  2 -1 -2 -2  2 -1  2 -2  2 -1  1  2  1]
     [-1  2  2 -1 -2 -2  1 -1  2  1 -1  1  2 -1 -1  1 -2 -2  1  2]
-    
+
 
 Ótimo! Foi bastante simples. É legal observar como funciona a sintaxe do Numpy. Por ele ser totalmente voltado para operações vetoriais, podemos fazer operações aritméticas em vetores elemento por elemento sem qualquer for loop, bata subtrair de 3 o valor absoluto do vetor move_x, como se ele fosse um escalar, e está feito!
 
@@ -161,7 +162,7 @@ print(move_x, move_y, sep = '\n\n') # sep = '\n\n' serve para espaçar o output 
      [-1  1  1 ...  2  2 -2]
      [-1  1  2 ...  1 -1  2]
      [-1 -2  1 ...  2 -2  2]]
-    
+
     [[-2  1 -2 ...  2  1  1]
      [ 2 -2 -1 ...  1 -1 -1]
      [ 2 -1 -2 ...  2  2  2]
@@ -169,8 +170,8 @@ print(move_x, move_y, sep = '\n\n') # sep = '\n\n' serve para espaçar o output 
      [-2 -2  2 ...  1  1  1]
      [-2  2 -1 ...  2 -2 -1]
      [-2 -1 -2 ...  1 -1 -1]]
-    
-    
+
+
 No código acima eu primeiro gerei 2 milhões de saltos em um vetor, e depois o reorganizei como uma matriz 20 x 100.000. Me acostumei a  enxergar matrizes como vários vetores-coluna agrupados, então foi assim que fiz, questão de preferência. Dessa forma, cada coluna representa uma tentativa e cada linha um salto.
 
 Para o próximo passo, queremos descobrir em que posição o cavalo está na medida em que se move pelo tabuleiro. Podemos fazer isso ao calcular a soma cumulativa das colunas.
@@ -191,7 +192,7 @@ print(position_x, position_y, sep = '\n\n')
      [ 4 -5 -8 ...  4 17  3]
      [ 3 -4 -6 ...  5 16  5]
      [ 2 -6 -5 ...  7 14  7]]
-    
+
     [[ -2   1  -2 ...   2   1   1]
      [  0  -1  -3 ...   3   0   0]
      [  2  -2  -5 ...   5   2   2]
@@ -199,7 +200,7 @@ print(position_x, position_y, sep = '\n\n')
      [ 12  -7 -12 ...   0   9   1]
      [ 10  -5 -13 ...   2   7   0]
      [  8  -6 -15 ...   3   6  -1]]
-    
+
 
 Mas, como o que nos interessa para responder ao problema é somente a última linha (onde ele parou no plano quando deu o último salto), podemos extrair somente ela pedindo a linha de indíce -1 de nossa matriz (no Python, -1 equivale ao último elemento, -2 ao penúltimo etc.).
 
@@ -209,9 +210,9 @@ print(position_x[-1], position_y[-1], sep = '\n\n')
 ```
 
     [ 2 -6 -5 ...  7 14  7]
-    
+
     [  8  -6 -15 ...   3   6  -1]
-    
+
 
 
 Agora, para de fato termos uma estimativa da probabilidade do cavalo voltar à origem após 20 saltos aleatórios, vamos calcular a frequência relativa desse evento em cem mil tentativas. Podemos fazer isso da seguinte maneira:
@@ -229,7 +230,7 @@ Agora, para de fato termos uma estimativa da probabilidade do cavalo voltar à o
 
 
 Aqui, o que o Numpy fez primeiro foi criar um vetor de booleans, ao comparar os dois vetores elemento por elemento, retornando Verdadeiro somente quando ambos foram iguais a zero, caso em que ele retornou para a origem concluído seu random walk.
-    
+
 Calculado esse vetor, o que fiz foi pedir sua média, e isso me dá justamente a frequência relativa do evento de interesse: é a contagem das vezes que o evento aconteceu (a soma dos verdadeiros, lidos como 1 pelo método 'mean') sobre o comprimento do vetor.
 
 E assim está pronto. Este é um resultado coerente com o obtido por Robinson, o que é confortante. A probabilidade em questão é de aproximadamente 0.6%; ou seja, a cada 1000 tentativas, podemos esperar que, em média, em 6 delas o cavalo voltará à origem após dar 20 saltos aleatórios.
@@ -271,7 +272,7 @@ knight_infinite_board(100000) # cem mil tentativas
 ```
 
     130 ms ± 4.16 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
-    
+
 
 
 ```python
@@ -280,11 +281,11 @@ knight_infinite_board(1000000) # 1 milhão!
 ```
 
     1.15 s ± 97.2 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
-    
+
 É extraordinariamente rápido. Mesmo quando se trata de cálculos com uma matriz de 20 x 1 milhão! E meu computador certamente não ajuda. O mesmo feito no base Python seria absurdamente mais lento.
 
 ###### Conclusões
 
-Acho que com esse simples exercício, pudemos mesmo atestar que o Numpy é uma ferramenta muito útil, garantindo eficiência com uma sintaxe simples e limpa. Há dentro dele ainda muito mais a ser explorado do que o exposto aqui, incluindo as mais diversas distribuições probabílistas com np.random, manipulação de matrizes com np.linalg etc. O numpy é muito usado pelas mais importantes bibliotecas relacionadas a Data Science e Machine Learning, como pandas e scikit-learn, por isso um conhecimento apropriado de suas funcionalidades pode ajudar muito se o objetivo é crescer na área de data science. 
+Acho que com esse simples exercício, pudemos mesmo atestar que o Numpy é uma ferramenta muito útil, garantindo eficiência com uma sintaxe simples e limpa. Há dentro dele ainda muito mais a ser explorado do que o exposto aqui, incluindo as mais diversas distribuições probabílistas com np.random, manipulação de matrizes com np.linalg etc. O numpy é muito usado pelas mais importantes bibliotecas relacionadas a Data Science e Machine Learning, como pandas e scikit-learn, por isso um conhecimento apropriado de suas funcionalidades pode ajudar muito se o objetivo é crescer na área de data science.
 
 Pretendo trazer outros posts em que o usarei, mas por ora ficarei por aqui. Espero que tenha sido proveitoso. Toda crítica/sugestão será muito bem-vinda. Até :smile:.
