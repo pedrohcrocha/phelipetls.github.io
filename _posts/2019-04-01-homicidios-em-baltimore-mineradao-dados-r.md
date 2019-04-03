@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Homicídios em Baltimore: extraindo dados com RegEx no R"
+title: "Extraindo dados de texto com RegEx no R"
 categories: [R]
 comments: true
 ---
