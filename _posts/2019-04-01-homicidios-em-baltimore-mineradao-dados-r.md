@@ -294,24 +294,15 @@ as colunas dos grupos que nos interessam.
 
 Há casos em que há duas colunas para duas regex alternativas, e
 precisamos mesclá-las (substiruir os ```NA``` de uma com os valores da outra).
-Criei uma função para isso.
+Vou usar a função ```ifelse``` para isso.
 
 ``` r
-replace_nas <- function(x, y) {
-  for (i in 1:length(x)) {
-      if (is.na(x[i])) {
-      x[i] <- y[i]
-    }
-  }
-  return(x)
-}
-
 causas              <- causes[, 2]
-lat                 <- lat_long[, 2]
-lon                 <- lat_long[, 3]
-raca                <- replace_nas(raca[, 2], raca[, 4])
-genero              <- replace_nas(genero[, 2], genero[, 3])
-idade               <- replace_nas(idade[, 2], idade[, 3])
+lat                 <- long_lat[, 2]
+lon                 <- long_lat[, 3]
+raca                <- ifelse(is.na(raca[, 2]), raca[, 4], raca[, 2])
+genero              <- ifelse(is.na(genero[, 2]), genero[, 3], genero[, 2])
+idade               <- ifelse(is.na(idade[, 2]), idade[, 3], idade[, 2])
 data                <- data[, 2]
 endereco            <- endereco[, 2]
 
