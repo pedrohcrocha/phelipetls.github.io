@@ -60,7 +60,7 @@ irei introduzindo ao longo do texto.
 | :----------------------------: | :---------------------------------------------------------------------- |
 | ```?```                            | o caractere precedente é opcional                           |
 | ```+```                           | o caractere precedente é obrigatório                        |
-| ```*```                           | o caractere é opcional, podendo ocorrer uma ou muitas vezes |
+| ```*```                           | o caractere é opcional, podendo ocorrer nenhuma ou muitas vezes |
 | ```{m,n}```                           | pode ocorrer no mínimo m, no máximo n vezes |
 
 Vale mencionar ainda o significado dos colchetes e dos parênteses.
