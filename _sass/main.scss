@@ -448,3 +448,12 @@ section {
 .cat-title {
   padding: 5px;
 }
+
+cats {
+  a {
+    text-decoration: none;
+    border: 0;
+    color: #000;
+    box-sizing: border-box;
+  }
+}
