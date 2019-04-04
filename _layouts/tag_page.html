@@ -22,7 +22,7 @@ layout: page
   <div class="center">
     <div class="tags-expo-list">
       {% for tag in site.tags %}
-        <a href="{{ base.url }}/tag/{{ tag[0] | slugify }}">{{ tag[0] | upcase }}</a>&nbsp;({{ tag[1].size }})
+        <a href="{{ base.url }}/tag/{{ tag[0] | slugify }}">{{ tag[0] | capitalize }}</a>&nbsp;({{ tag[1].size }})
       {% endfor %}
     </div>
   </div>
