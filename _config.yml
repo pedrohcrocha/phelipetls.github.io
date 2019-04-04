@@ -24,6 +24,7 @@ exclude:            [ "LICENSE", "README.md", "CNAME", "vendor", "Gemfile", "scr
 plugins:
   - jekyll-sitemap
   - jemoji
+  - jekyll-tagging
 
 future:             true
 
@@ -32,6 +33,9 @@ disqus:
 
 github_username:    phelipetls
 linkedin_username:  phelipeteles
+
+tag_page_layout: tag_page
+tag_page_dir: tag
 
 defaults:
   -

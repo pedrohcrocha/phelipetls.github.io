@@ -2,6 +2,7 @@
 layout: post
 title: "Spread bancário brasileiro: limpeza e visualização de dados"
 categories: [R, Economia]
+tags: [tidyverse, data visualization]
 comments: true
 ---
 

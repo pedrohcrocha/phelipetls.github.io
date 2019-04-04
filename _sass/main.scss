@@ -430,3 +430,21 @@ section {
   table-layout: auto;
   overflow-x: auto;
 }
+
+.left {
+  text-align: left;
+  margin: 0 auto;
+}
+
+.betterlink {
+  text-decoration: none;
+}
+
+.right {
+  text-align: right;
+  margin: 0 auto;
+}
+
+.cats {
+  padding-left: 10px;
+}

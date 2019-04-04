@@ -1,0 +1,25 @@
+---
+layout: page
+---
+<div class="center">
+    <h6>{{ page.tag | capitalize }}</h6>
+</div>
+<ul>
+{% for post in page.posts %}
+  <div class="alt_li"><div class="title">
+   <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+  </div></div>
+{% endfor %}
+</ul>
+
+<div class="divider"></div>
+
+<div class="tags-expo">
+  <div class="center">
+    <div class="tags-expo-list">
+      {% for tag in site.tags %}
+        <a href="{{ base.url }}/tag/{{ tag[0] | slugify }}">{{ tag[0] }}</a>&nbsp;({{ tag[1].size }})
+      {% endfor %}
+    </div>
+  </div>
+<div class="divider"></div>
