@@ -9,8 +9,8 @@ layout: default
 		<time class="code">{{ page.date | date: '%B %-d, %Y' }} {% if page.categories %} | {% endif %}</time>
 
 			  {% if page.categories %}
-				  {% for tag in page.categories %}
-				    <a href="{{ site.baseurl }}{{ site.tag_page }}#{{ tag | slugify }}" class="post-tag">{{ tag }}</a>{% unless forloop.last %}&nbsp;{% endunless %}
+				  {% for cat in page.categories %}
+				    <a href="{{ site.baseurl }}/categories/#{{ cat | slugize }}">{{ cat }}</a>{% unless forloop.last %}&nbsp;{% endunless %}
 				  {% endfor %}
 			  {% endif %}
 

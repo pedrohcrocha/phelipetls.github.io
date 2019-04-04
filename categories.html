@@ -12,21 +12,24 @@ title: Categorias
       {% endfor %}
     </div>
   </div>
+
 <div class="divider"></div>
 
-
 {% for category in site.categories %}
-  <a id="{{ category[0] | slugify }}">
+  <a id="{{ category[0] | slugify }}", class = "center">
     <h6>{{ category[0] }}</h6>
   </a>
-  <ul>
-    {% for post in category[1] %}
-	  <div class="alt_li">
-      <div class="title">
-          <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">{{ post.title }}</a>
-          <small> {{ post.date | date: "%d %b, %Y" }}</small>
-      </div>
-    </div>
-    {% endfor %}
-  </ul>
+
+  <section>
+      {% for post in category[1] %}
+      <ul>
+        <li>
+         <div class="title"><a href="{{ post.url }}">{{ post.title }}</a></div>
+        </li>
+      </ul>
+      {% endfor %}
+  </section>
+
+<div class="divider"></div>
+
 {% endfor %}
