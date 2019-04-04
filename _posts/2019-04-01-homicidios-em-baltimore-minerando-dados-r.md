@@ -2,6 +2,7 @@
 layout: post
 title: "Extraindo dados de texto com RegEx no R"
 categories: [R]
+tags: [tidyverse, regex]
 comments: true
 ---
 

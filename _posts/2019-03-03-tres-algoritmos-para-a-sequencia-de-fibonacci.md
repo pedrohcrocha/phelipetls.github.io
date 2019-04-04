@@ -2,6 +2,7 @@
 layout: post
 title: Três algoritmos para a sequência de Fibonacci
 categories: [Python, Álgebra Linear]
+tags: [numpy, algoritmos]
 comments: true
 ---
 
