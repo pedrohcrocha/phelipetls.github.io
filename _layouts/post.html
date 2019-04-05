@@ -10,7 +10,9 @@ layout: default
 
 			  {% if page.categories %}
 				  {% for cat in page.categories %}
-				    <a href="{{ site.baseurl }}/categories/#{{ cat | slugize }}">{{ cat }}</a>{% unless forloop.last %}&nbsp;{% endunless %}
+				  	<cats>
+				    <a href="{{ site.baseurl }}/categories/#{{ cat | slugize }}">{{ cat }}</a>{% unless forloop.last %}, {% endunless %}
+					</cats>
 				  {% endfor %}
 			  {% endif %}
 
@@ -19,7 +21,9 @@ layout: default
 	{% if page.tags %}
 		<p><div class = "center"><small>Tags:
 			{% for tag in page.tags %}
-				<a href="{{ site.baseurl }}/tag/{{tag | slugify }}">{{tag}}</a>{% unless forloop.last %}, {% endunless %}
+				<cats>
+				<a href="{{ site.baseurl }}/tag/{{tag | slugify }}">{{tag | capitalize}}</a>{% unless forloop.last %}, {% endunless %}
+				</cats>
 			{% endfor %}
 		</small></div></p>
 	{% endif %}

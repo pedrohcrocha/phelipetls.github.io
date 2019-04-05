@@ -21,7 +21,7 @@ layout: page
 <cats>
   <div class="center">
       {% for tag in site.tags %}
-        <a href="{{ base.url }}/tag/{{ tag[0] | slugify }}">{{ tag[0] | capitalize }}</a>&nbsp;({{ tag[1].size }})
+        <a href="{{ base.url }}/tag/{{ tag[0] | slugify }}">{{ tag[0] | capitalize }}</a>&nbsp;({{ tag[1].size }}){% unless forloop.last %}, {% endunless %}
       {% endfor %}
   </div>
 </cats>
