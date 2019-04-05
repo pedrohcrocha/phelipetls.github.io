@@ -4,7 +4,7 @@ layout: default
 
 <article>
 
-	<h1 class="title">{{ page.title | capitalize {% if page.tag %} oi {% endif %} }}</h1>
+	<h1 class="title">{{ page.title {% if page.tag %} oi {% endif %} | capitalize }}</h1>
 
 	<div class="divider"></div>
 
