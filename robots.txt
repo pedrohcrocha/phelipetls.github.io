@@ -1,0 +1,4 @@
+sitemap: https://phelipetls.github.io/sitemap.xml
+
+user-agent: EmailCollector
+disallow: /
