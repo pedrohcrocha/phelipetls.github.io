@@ -1,5 +1,6 @@
 ---
 layout: tag_page
-title: "Tidyverse"
+title: "tidyverse"
 tag: tidyverse
+robots: noindex
 ---

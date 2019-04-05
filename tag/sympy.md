@@ -1,5 +1,6 @@
 ---
 layout: tag_page
-title: "Sympy"
+title: "sympy"
 tag: sympy
+robots: noindex
 ---

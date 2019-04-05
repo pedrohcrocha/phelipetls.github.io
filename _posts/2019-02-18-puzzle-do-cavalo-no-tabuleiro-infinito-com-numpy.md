@@ -2,7 +2,7 @@
 layout: post
 title: Puzzle do cavalo no tabuleiro infinito com NumPy
 categories: [Python, Estatística]
-tags: [numpy, monte carlo, matplotlib]
+tags: numpy monte-carlo matplotlib
 comments: true
 ---
 ##### Introdução

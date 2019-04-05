@@ -1,6 +1,6 @@
 ---
 layout: tag_page
-title: "regex"
-tag: regex
+title: "dataviz"
+tag: dataviz
 robots: noindex
 ---

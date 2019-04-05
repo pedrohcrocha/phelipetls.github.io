@@ -1,6 +1,6 @@
 ---
 layout: tag_page
-title: "regex"
-tag: regex
+title: "ggplot2"
+tag: ggplot2
 robots: noindex
 ---

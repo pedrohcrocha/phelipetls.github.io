@@ -1,5 +1,6 @@
 ---
 layout: tag_page
-title: "Numpy"
+title: "numpy"
 tag: numpy
+robots: noindex
 ---

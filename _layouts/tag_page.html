@@ -13,12 +13,12 @@ layout: page
     {% endfor %}
 </section>
 
-
+<div class="divider"></div>
 
 <cats>
   <div class="center">
       {% for tag in site.tags %}
-        <a href="{{ base.url }}/tag/{{ tag[0] | slugify }}">{{ tag[0] | capitalize }}</a>&nbsp;({{ tag[1].size }}){% unless forloop.last %}, {% endunless %}
+        <a href="{{ base.url }}/tag/{{ tag[0] | slugify }}">{{ tag[0] | replace: "-", " " }}</a>&nbsp;({{ tag[1].size }}){% unless forloop.last %}, {% endunless %}
       {% endfor %}
   </div>
 </cats>

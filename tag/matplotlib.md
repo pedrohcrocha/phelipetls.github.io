@@ -1,5 +1,6 @@
 ---
 layout: tag_page
-title: "Matplotlib"
+title: "matplotlib"
 tag: matplotlib
+robots: noindex
 ---

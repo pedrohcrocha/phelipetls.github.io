@@ -1,5 +1,6 @@
 ---
 layout: tag_page
-title: "Monte Carlo"
+title: "monte-carlo"
 tag: monte-carlo
+robots: noindex
 ---

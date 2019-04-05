@@ -21,7 +21,7 @@ layout: default
 		<p><div class = "center"><small>Tags:
 			{% for tag in page.tags %}
 				<cats>
-				<a href="{{ site.baseurl }}/tag/{{tag | slugify }}">{{tag | capitalize}}</a>{% unless forloop.last %}, {% endunless %}
+				<a href="{{ site.baseurl }}/tag/{{tag | slugify }}">{{tag | capitalize | replace: "-", " "}}</a>{% unless forloop.last %}, {% endunless %}
 				</cats>
 			{% endfor %}
 		</small></div></p>
