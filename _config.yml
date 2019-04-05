@@ -10,6 +10,8 @@ permalink:          /:title # Post permalink
 timezone:           America/Sao_Paulo  # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 mathjax:            true  # enables support for mathjax - set to 'false' to disable
 
+baseurl: ''
+
 # Site Build
 highlighter:        rouge
 markdown:           kramdown
@@ -24,7 +26,6 @@ exclude:            [ "LICENSE", "README.md", "CNAME", "vendor", "Gemfile", "scr
 plugins:
   - jekyll-sitemap
   - jemoji
-  - jekyll-tagging
 
 future:             true
 
