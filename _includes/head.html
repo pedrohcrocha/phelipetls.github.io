@@ -26,3 +26,7 @@ MathJax.Hub.Config({
 </script>
 <script type="text/javascript" async src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
 {% endif %}
+
+{% if site.tags != "" %}
+  {% include collecttags.html %}
+{% endif %}
