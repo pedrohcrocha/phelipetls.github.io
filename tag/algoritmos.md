@@ -1,5 +1,6 @@
 ---
-layout: tag_page
-title: "Algoritmos"
+layout: tagpage
+title: "algoritmos"
 tag: algoritmos
+robots: noindex
 ---

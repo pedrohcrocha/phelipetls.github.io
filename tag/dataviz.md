@@ -1,6 +1,6 @@
 ---
 layout: tagpage
-title: "tidyverse"
-tag: tidyverse
+title: "dataviz"
+tag: dataviz
 robots: noindex
 ---

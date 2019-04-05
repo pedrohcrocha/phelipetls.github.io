@@ -1,6 +1,6 @@
 ---
 layout: tagpage
-title: "tidyverse"
-tag: tidyverse
+title: "ggplot2"
+tag: ggplot2
 robots: noindex
 ---
