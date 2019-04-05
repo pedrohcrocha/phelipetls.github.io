@@ -6,8 +6,7 @@ layout: default
 
 	<div class="center">
 		<h1 class="title">{{ page.title }}</h1>
-		<time class="code">{{ page.date | date: '%B %-d, %Y' }} {% if page.categories %} | {% endif %}</time>
-
+		<time class="code">{{ page.date | date: '%B %-d, %Y' }} {% if page.categories %} · {% endif %}</time>
 			  {% if page.categories %}
 				  {% for cat in page.categories %}
 				  	<cats>

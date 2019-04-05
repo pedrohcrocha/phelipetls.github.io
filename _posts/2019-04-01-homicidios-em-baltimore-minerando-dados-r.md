@@ -93,7 +93,8 @@ extraíremos da linha com a função `stringr::str_match`.
 ``` r
 # note que, no r, precisamos infelizmente
 # adicionar uma \ a mais no regex
-causes <- str_match(homicides, "Cause: ([\\w\\s]+)")
+causes <- str_match(homicides,
+                    "Cause: ([\\w\\s]+)")
 
 causes %>% head()
 ```
@@ -119,7 +120,8 @@ metacharacter ```^```. Observe que, dentro dos colchetes, o ```.``` não é um
 metacharacter, mas um ponto comum mesmo.
 
 ``` r
-lat_long <- str_match(homicides, "^([\\d.-]+), ([\\d.-]+)")
+lat_long <- str_match(homicides,
+                      "^([\\d.-]+), ([\\d.-]+)")
 
 lat_long %>% head
 ```
@@ -144,7 +146,8 @@ isso. Podemos indicar que desejamos um match numa regex OU em outra com o
 metacharacter ```|```. Daí que:
 
 ``` r
-raca <- str_match(homicides, "<dd>(\\w+) (fe)?male|[Rr]ace: (\\w+)")
+raca <- str_match(homicides,
+                  "<dd>(\\w+) (fe)?male|[Rr]ace: (\\w+)")
 
 raca %>% head
 ```
@@ -179,7 +182,8 @@ Esse caso é muito similar ao anterior, mudando de maneira idêntica no
 registro. Então vamos logo tratá-lo.
 
 ``` r
-genero <- str_match(homicides, "<dd>\\w* (\\w+),?|[Gg]ender: (\\w+)")
+genero <- str_match(homicides,
+                    "<dd>\\w* (\\w+),?|[Gg]ender: (\\w+)")
 
 genero %>% head
 ```
@@ -209,7 +213,8 @@ genero %>% tail
 E aqui a mesma coisa ocorre, vamos usar duas regex para dar conta disso:
 
 ``` r
-idade <- str_match(homicides, "(\\d+) years? old|[Aa]ge: (\\d+)")
+idade <- str_match(homicides,
+                   "(\\d+) years? old|[Aa]ge: (\\d+)")
 
 idade %>% head
 ```
@@ -251,7 +256,8 @@ Dito isto, a regex adequada é a do código. Alumas linhas tinham um
 espaço adicional entre o mês e o dia, por isso adicionei um " ?" ali.
 
 ``` r
-data <- str_match(homicides, "[Ff]ound on (\\w+  ?\\d{1,2}, \\d{4})")
+data <- str_match(homicides,
+                  "[Ff]ound on (\\w+  ?\\d{1,2}, \\d{4})")
 
 data %>% head
 ```
@@ -270,7 +276,8 @@ data %>% head
 Também pode ser interessante termos disponível o endereço de cada morte:
 
 ``` r
-endereco <- str_match(homicides, ">([A-z0-9 .]+)<br ?/>")
+endereco <- str_match(homicides,
+                      ">([A-z0-9 .]+)<br ?/>")
 
 endereco %>% head
 ```
@@ -332,7 +339,8 @@ E terminamos nossa limpeza dos dados. Na verdade, seria bom fazer algumas coisin
 homicides_df <- homicides_df %>%
   mutate_at(vars(causas, raca, genero),
             list(~str_to_title)) %>%
-  mutate_at(vars(lon, lat), list(~as.numeric)) %>%
+  mutate_at(vars(lon, lat),
+            list(~as.numeric)) %>%
   mutate(data = parse_date(data, "%B %d, %Y"))
 
 homicides_df %>% head
