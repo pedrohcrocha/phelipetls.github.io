@@ -2,4 +2,4 @@
 set -e # halt script on error
 
 bundle exec jekyll build
-bundle exec htmlproofer ../_site --disable-external
+touch ./_site/.nojekyll # this file tells gh-pages that there is no need to build
