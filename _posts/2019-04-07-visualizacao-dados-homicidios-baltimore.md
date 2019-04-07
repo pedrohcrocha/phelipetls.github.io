@@ -14,7 +14,7 @@ e fazer a visualização que queremos. Daí o uso extensivo do
 tidyverse antes de chamar o ggplot2.
 
 Ok, vamos primeiro olhar para a nossa [base de
-dados](../assets/homicides_df.csv "Link do download direto")
+dados](https://raw.githubusercontent.com/phelipetls/phelipetls.github.io/master/assets/homicides_df.csv "Link do arquivo raw")
 e ver que perguntas gostaríamos de
     responder:
 
