@@ -2,7 +2,7 @@
 layout: post
 title: Método de Newton
 categories: [Python, Cálculo]
-tags: matplotlib numpy sympy
+tags: matplotlib numpy sympy algoritmos
 comments: true
 ---
 
