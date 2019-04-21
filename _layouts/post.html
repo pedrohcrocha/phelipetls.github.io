@@ -10,7 +10,7 @@ layout: default
 			  {% if page.categories %}
 				  {% for cat in page.categories %}
 				  	<cats>
-				    <a href="{{ site.baseurl }}/categories/#{{ cat | slugize | downcase }}">{{ cat }}</a>{% unless forloop.last %}, {% endunless %}
+				    <a href="{{ site.baseurl }}/categories/#{{ cat | slugify | downcase }}">{{ cat }}</a>{% unless forloop.last %}, {% endunless %}
 					</cats>
 				  {% endfor %}
 			  {% endif %}
