@@ -11,7 +11,7 @@ Thrones. Difícil ficar melhor que isso. Juntando a euforia causada pela
 volta da série com o meu interesse em análise de dados com o tidyverse,
 tive a ideia de fazer mineração de texto com base nas legendas de GOT.
 
-Essa tarefa é muito facilitada pelo pacote [`tidytext`](www.tidytextmining.com),
+Essa tarefa é muito facilitada pelo pacote [`tidytext`](https://www.tidytextmining.com),
 que generaliza a ideia de um tidy dataset para dados compostos de puro texto,
 como um livro ou legendas.
 
