@@ -244,7 +244,7 @@ E aqui as coisas começam a ficar interessantes\! A palavra mais frequente no ge
 time, o que é recorrente em muitos textos, seguida de north, um dos lugares centrais na série.
 
 A base limpa que usaremos no decorrer do post você pode baixar
-[aqui](./assets/got_words.csv) para fazer a análise que quiser.
+[aqui](https://raw.githubusercontent.com/phelipetls/phelipetls.github.io/master/assets/got_words.csv) para fazer a análise que quiser.
 
 ###### Correlação entre as palavras
 
