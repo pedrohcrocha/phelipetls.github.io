@@ -287,7 +287,7 @@ word_pairs
     ## # ... with 109,882 more rows
 
 Dentre alguns resultado interessantes, nos deparamos com um bastante
-anormal. color font? font color? Isso são linhas de CSS, que não me
+anormal. color font? font color? Isso são linhas de HTML, que não me
 interessam. Mas, fora isso, já conseguimos algo proveitoso.
 
 Para visualizar essas relações, vamos usar grafos. Nele as palavras são nós
