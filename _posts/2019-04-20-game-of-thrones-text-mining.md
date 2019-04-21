@@ -11,7 +11,7 @@ Thrones. Difícil ficar melhor que isso. Juntando a euforia causada pela
 volta da série com o meu interesse em análise de dados com o tidyverse,
 tive a ideia de fazer mineração de texto com base nas legendas de GOT.
 
-Essa tarefa é muito facilitada pelo pacote [`tidytext`](www.tidytextmining.com),
+Essa tarefa é muito facilitada pelo pacote [`tidytext`](https://www.tidytextmining.com),
 que generaliza a ideia de um tidy dataset para dados compostos de puro texto,
 como um livro ou legendas.
 
@@ -602,8 +602,10 @@ essa base tem muito mais palavras positivas em relação a negativas. Palavras c
 aumentam também o número de seções.
 
 Enfim, esse é um ponto delicado. Não sei que método é o mais aplicado a GOT, mas é
-válida a menção pelo conhecimento. Acho porém que a última é um retrato mais fidedigno,
+válida a menção pelo conhecimento. Diria porém que a última é um retrato mais fidedigno,
 porque a série não é feita somente de momentos negativos como poderíamos ter concluído com
-as outras.
+as outras. E ao menos numa coisa todas elas concordam: o Walk of Shame foi bem punk.
 
-E ao menos numa coisa todas elas concordam: o Walk of Shame foi bem punk.
+Uma limitação dessa análise é que a série não se vale somente de palavras para
+transmitir o que tá acontecendo, então o resultado só poderia ser parcial.
+Algo mais efetivo seria aplicar o mesmo aos livros.
