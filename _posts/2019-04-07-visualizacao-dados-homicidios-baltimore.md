@@ -1,6 +1,6 @@
 ---
 title: "Homicídios em Baltimore: visualizações com ggplot2 e gganimate"
-categories: R
+categories: [R, Análise de Dados]
 tags: dataviz tidyverse gganimate ggplot2
 comments: true
 ---
