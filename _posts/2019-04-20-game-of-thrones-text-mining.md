@@ -523,7 +523,7 @@ got_afinn %>%
   labs(x = "Seções", y = "Sentimento médio\n",
        title = "Sentimento médio a cada 25 palavras por temporada") +
   scale_fill_gradient2(low = 'firebrick3',
-                       high = 'dodgerblue3')
+                       high = 'dodgerblue3') +
   facet_wrap(season~., scale = 'free_x')
 ```
 
