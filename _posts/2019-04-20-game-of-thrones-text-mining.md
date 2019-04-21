@@ -21,7 +21,7 @@ visualizações.
 ##### Obtendo os dados
 
 Os dados brutos foram coletados
-[aqui](www.kaggle.com/gunnvant/game-of-thrones-srt), onde os encontrei
+[aqui](https://www.kaggle.com/gunnvant/game-of-thrones-srt), onde os encontrei
 em formato JSON. São 7 arquivos, que contêm todas as legendas para as
 sete temporadas de GOT. Felizmente, há uma biblioteca para ler arquivos
 JSON no R, o `jsonlite`.
