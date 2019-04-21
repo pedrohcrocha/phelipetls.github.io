@@ -125,7 +125,7 @@ uma palavra para cada linha\! Então, o segredo é que gostaríamos de
 separar as legendas em palavras por linha\!
 
 Separar cada linha em palavras é muito fácil de ser feito com este
-pacote, basta usar a função `unnest_tokens()`. Queremos também rastrear que linha cada
+pacote, basta usar a função `unnest_tokens()`. Queremos também rastrear a que linha cada
 palavra pertence, o que pode ser feito com o `dplyr::rownames_to_column()`
 
 ``` r
@@ -208,8 +208,8 @@ got_words %>%
     ## 10 brother   393
     ## # ... with 9,069 more rows
 
-E aqui vemos algo mais específico de GOT, mas essas palavras são tão frequentes
-porque são pronomes de tratamento do universo de GOT, são as stop
+E aqui vemos algo mais específico de GOT, mas essas palavras são assim tão frequentes
+por serem pronomes de tratamento de GOT, são as stop
 words desse universo. Por isso, achei prudente retirá-las.
 
 ``` r
@@ -290,9 +290,9 @@ Dentre alguns resultado interessantes, nos deparamos com um bastante
 anormal. color font? font color? Isso são linhas de CSS, que não me
 interessam. Mas, fora isso, já conseguimos algo proveitoso.
 
-Para visualizar essas relações, vamos usar grafos. Tratando as palavras
-como nós e os vértices indicam relações, uma network dos top 100 par de
-palavras mais correlacionados entre si (os vértices mais grossos indicam maior correlação).
+Para visualizar essas relações, vamos usar grafos. Nele as palavras são nós
+e os vértices as corrrelações (um vértice mais escuro indica uma correlação mais alta),
+teremos assim uma network dos top 100 par de palavras mais correlacionados entre si.
 
 ``` r
 library(ggraph)
@@ -492,11 +492,10 @@ got_bing %>%
 ![](./images/unnamed-chunk-13-1.png)<!-- -->
 
 Em análise de texto, é interessante buscar visualizar quais partes dele
-são mais negativas ou positivas. O que me interessa aqui é ver isso
-tanto por temporada.
+são mais negativas ou positivas. O que me interessa aqui é ver isso por temporada.
 
-Iremos fazer isso dividindo o texto em seções. Vamos indexar as linhas pelo número x da
-linha, e depois usar a divisão inteira para separar o texto em pedaços
+Farei isso dividindo o texto em seções. Para isso, vamos indexar cada linha
+com o número da linha e depois aplicar a divisão inteira para separar o texto em pedaços
 formados por n palavras.
 
 Vamos usar o dataset `afinn` agora, e calcular o sentimento médio de
@@ -519,8 +518,7 @@ got_afinn %>%
   summarise(avg_sentiment = mean(score)) %>%
   ggplot(aes(section,
              avg_sentiment,
-             fill = avg_sentiment),
-         color = 'white') +
+             fill = avg_sentiment)) +
   geom_col(show.legend = F) +
   labs(x = "Seções", y = "Sentimento médio\n",
        title = "Sentimento médio a cada 25 palavras por temporada") +
@@ -533,7 +531,7 @@ got_afinn %>%
 
 Em geral, podemos ver que as temporadas foram ficando mais pesadas. Os
 picos azuis claros foram ficando cada vez mais raros e os vales
-vermelhos mais agudos, chegando a seu clímax na temporada 5, no Walk of
+vermelhos mais agudos, chegando a seu clímax na temporada 5, o Walk of
 Shame.
 
 Vamos tentar o mesmo com as outras duas bases. Como elas classificam as
@@ -603,10 +601,9 @@ essa base tem muito mais palavras positivas em relação a negativas. Palavras c
 'prince' etc. são nela 'positivas', enquanto que nas outras, não. Por ter mais palavras,
 aumentam também o número de seções.
 
-Enfim, esse é um ponto delicado.
-Não sei qual método é o mais aplicado a GOT, mas é
-válida a menção pelo conhecimento. Mas acho que a última é um retrato mais fidedigno,
+Enfim, esse é um ponto delicado. Não sei que método é o mais aplicado a GOT, mas é
+válida a menção pelo conhecimento. Acho porém que a última é um retrato mais fidedigno,
 porque a série não é feita somente de momentos negativos como poderíamos ter concluído com
 as outras.
 
-E ao menos numa coisa todas elas ao menos concordam: o Walk of Shame foi bem punk.
+E ao menos numa coisa todas elas concordam: o Walk of Shame foi bem punk.
